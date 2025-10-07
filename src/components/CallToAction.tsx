@@ -24,7 +24,6 @@ export function CallToAction() {
           <Text 
             variant="heading-default-l" 
             onBackground="neutral-weak" 
-            wrap="balance"
             align="center"
             className="max-w-2xl"
           >
@@ -32,7 +31,7 @@ export function CallToAction() {
           </Text>
         </Column>
         
-        <Row gap="16" horizontal="center"  marginTop="16">
+        <Row gap="16" horizontal="center" wrap={true} marginTop="16">
           <Button
             href={home.callToAction.primaryButton.href}
             variant="primary"
@@ -58,13 +57,13 @@ export function CallToAction() {
         <Row 
           gap="24" 
           horizontal="center" 
-          
+          wrap={true} 
           marginTop="32"
           paddingX="24"
         >
           {home.callToAction.features.map((feature, index) => (
             <Row
-              key={index}
+              key={feature}
               gap="8"
               vertical="center"
               paddingX="16"

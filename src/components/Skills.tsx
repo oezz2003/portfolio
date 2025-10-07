@@ -18,7 +18,6 @@ export function Skills() {
             variant="heading-default-m" 
             onBackground="neutral-weak" 
             marginTop="8"
-            wrap="balance"
           >
             {home.skills.description}
           </Text>
@@ -28,12 +27,12 @@ export function Skills() {
           paddingX="20" 
           paddingY="24"
           gap="12"
-          wrap="wrap"
+          wrap={true}
           horizontal="start"
         >
           {home.skills.tools.map((tool, index) => (
             <Badge
-              key={index}
+              key={tool.name}
               background="neutral-alpha-weak"
               paddingX="16"
               paddingY="8"

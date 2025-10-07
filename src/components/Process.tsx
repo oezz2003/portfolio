@@ -18,7 +18,6 @@ export function Process() {
             variant="heading-default-m" 
             onBackground="neutral-weak" 
             marginTop="8"
-            wrap="balance"
           >
             {home.process.description}
           </Text>
@@ -29,12 +28,12 @@ export function Process() {
           paddingX="20" 
           paddingY="24"
           gap="24"
-          wrap="wrap"
+          wrap={true}
           horizontal="start"
         >
           {home.process.steps.map((step, index) => (
             <Column
-              key={index}
+              key={step.title}
               className="flex-1 min-w-[280px] max-w-[320px]"
               gap="16"
             >

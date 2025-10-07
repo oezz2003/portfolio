@@ -31,7 +31,6 @@ export function RecentActivity() {
             variant="heading-default-m" 
             onBackground="neutral-weak" 
             marginTop="8"
-            wrap="balance"
           >
             {home.recentActivity.description}
           </Text>
@@ -44,7 +43,7 @@ export function RecentActivity() {
         >
           {home.recentActivity.activities.map((activity, index) => (
             <Row
-              key={index}
+              key={activity.title}
               paddingX="24"
               paddingY="20"
               className="bg-gradient-to-r from-neutral-alpha-weak/30 to-transparent rounded-lg border border-neutral-alpha-weak/50 hover:border-brand-alpha-weak/50 transition-all duration-300"

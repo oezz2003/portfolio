@@ -18,7 +18,6 @@ export function Statistics() {
             variant="heading-default-m" 
             onBackground="neutral-weak" 
             marginTop="8"
-            wrap="balance"
           >
             {home.stats.description}
           </Text>
@@ -28,12 +27,12 @@ export function Statistics() {
           paddingX="20" 
           paddingY="24"
           gap="24"
-          wrap="wrap"
+          wrap={true}
           horizontal="center"
         >
           {home.stats.items.map((stat, index) => (
             <Column
-              key={index}
+              key={stat.label}
               align="center"
               gap="8"
               paddingX="24"

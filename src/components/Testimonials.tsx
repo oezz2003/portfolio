@@ -1,13 +1,15 @@
 import { Column, Heading, Text, Row } from "@once-ui-system/core";
 import { home } from "@/resources";
 
+const STAR_KEYS = ['star-0', 'star-1', 'star-2', 'star-3', 'star-4'];
+
 export function Testimonials() {
   if (!home.testimonials.display) return null;
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <span
-        key={i}
+        key={STAR_KEYS[i]}
         className={`text-lg ${
           i < rating ? 'text-yellow-400' : 'text-gray-300'
         }`}
@@ -31,7 +33,6 @@ export function Testimonials() {
             variant="heading-default-m" 
             onBackground="neutral-weak" 
             marginTop="8"
-            wrap="balance"
           >
             {home.testimonials.description}
           </Text>
@@ -41,12 +42,12 @@ export function Testimonials() {
           paddingX="20" 
           paddingY="24"
           gap="24"
-          wrap="wrap"
+          wrap={true}
           horizontal="start"
         >
           {home.testimonials.reviews.map((review, index) => (
             <Column
-              key={index}
+              key={review.name}
               paddingX="24"
               paddingY="32"
               className="flex-1 min-w-[300px] bg-gradient-to-br from-brand-alpha-weak/10 to-transparent rounded-lg border border-brand-alpha-weak/30 hover:border-brand-alpha-weak/50 transition-all duration-300"
