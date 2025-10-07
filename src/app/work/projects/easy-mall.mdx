@@ -1,33 +1,62 @@
 ---
-title: "Easy Mall"
-publishedAt: "2024-03-15"
+title: "E-Commerce Platform"
+publishedAt: "2024-06-10"
 images:
   - "/images/projects/project 5/easy mall.jpg"
-summary: "An e-commerce platform built with Next.js and Django, featuring product management, shopping cart, payment integration, and vendor management."
+summary: "A seamless e-commerce platform built with Next.js and WooCommerce REST API, designed for effortless browsing, modern aesthetics, and flexible CMS integration."
+role: "Full-Stack Developer & UI/UX Designer"
 ---
 
-# Easy Mall
+# E-Commerce Platform
 
-A comprehensive e-commerce platform designed to provide a seamless shopping experience for customers while offering powerful tools for vendors and administrators.
+A streamlined online shopping experience built to prioritize **simplicity**, **speed**, and **clarity**.  
+The project integrates **Next.js** on the frontend with **WooCommerce** as the core CMS through **REST API**, ensuring smooth product management and a consistent user experience.  
+A secondary version was also developed using **Strapi** for more flexible and lightweight content management.
+
+## Project Objective
+
+The goal behind *E-Commerce Platform* was to create a **smooth, distraction-free shopping experience** that highlights usability and speed.  
+The focus was on building a scalable e-commerce structure where both **visual design** and **backend performance** work together — offering intuitive navigation, clean product presentation, and seamless content control through multiple CMS integrations.
 
 ## Key Features
 
-- **Product Catalog**: Extensive product database with search and filtering
-- **Shopping Cart**: Persistent cart with real-time updates
-- **Payment Integration**: Secure payment processing with multiple gateways
-- **Vendor Management**: Multi-vendor marketplace functionality
-- **Order Management**: Complete order processing and tracking
+- **WooCommerce Integration**: Full synchronization of products, categories, and media via REST API  
+- **Alternative CMS (Strapi)**: Parallel version built for easier backend control and rapid testing  
+- **Optimized Browsing**: Simple and intuitive navigation with focus on UX clarity  
+- **Dynamic Media Handling**: Split between code-embedded media and API-fetched assets for efficiency  
+- **Responsive Layout**: Fully adaptive interface for desktop, tablet, and mobile  
+- **SEO-Friendly Structure**: Semantic HTML, optimized metadata, and clean routing  
+- **Fast Rendering**: Leveraging Next.js static optimization and API caching  
+
+## Design Approach
+
+The design philosophy behind *E-Commerce Platform* focused on **functional minimalism** — clean visuals that keep attention on products rather than distractions.  
+White space, bold typography, and subtle animations were used to create a sense of clarity and trust.  
+Every user flow — from homepage exploration to checkout — was tested for simplicity, consistency, and conversion optimization.  
 
 ## Technologies Used
 
-- Frontend: Next.js, TypeScript, Tailwind CSS
-- Backend: Django, Django REST Framework
-- Database: PostgreSQL
-- Payment: Stripe, PayPal
-- Search: Elasticsearch
+- **Frontend**: Next.js, React.js  
+- **CMS / API**: WooCommerce REST API, Strapi  
+- **Styling**: Tailwind CSS  
+- **Hosting**: Vercel  
+- **State Management**: Context API / SWR for API handling  
+
+## Challenges & Solutions
+
+- **Challenge: Integrating a complex WooCommerce backend with a modern Next.js frontend**  
+  **Solution:** Built custom API bridges and caching logic to handle WooCommerce REST endpoints efficiently while maintaining real-time synchronization.  
+
+- **Challenge: Managing dual content systems (WooCommerce & Strapi)**  
+  **Solution:** Designed a modular architecture where Strapi handles static content (blogs, banners, UI text) while WooCommerce serves dynamic store data — both unified through a shared data layer.  
+
+- **Challenge: Optimizing media delivery for performance**  
+  **Solution:** Divided media assets into two categories — static assets embedded directly in code for core visuals, and dynamic assets fetched via API — minimizing redundant calls and improving page speed.  
+
+- **Challenge: Keeping the interface lightweight without losing visual appeal**  
+  **Solution:** Applied a minimalist design language and used Tailwind CSS with custom utility classes to reduce CSS bloat while maintaining design consistency.  
 
 ## Project Highlights
 
-This platform showcases expertise in building scalable e-commerce solutions with multi-vendor support and comprehensive payment processing.
-
-
+*E-Commerce Platform* represents a refined balance between **technical scalability** and **user-centric design**.  
+It demonstrates strong expertise in **API-driven architecture**, **WooCommerce integration**, and **Next.js performance optimization**, while delivering an elegant, frictionless shopping experience.
