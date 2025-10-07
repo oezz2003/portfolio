@@ -99,6 +99,123 @@ export interface Home extends BasePageConfig {
     title: React.ReactNode;
     href: string;
   };
+  /** Skills section configuration */
+  skills: {
+    /** Whether to display the skills section */
+    display: boolean;
+    /** Title of the skills section */
+    title: string;
+    /** Description of the skills section */
+    description: string;
+    /** List of tools and technologies */
+    tools: Array<{
+      /** Name of the tool/technology */
+      name: string;
+      /** Icon name for the tool/technology */
+      icon: string;
+    }>;
+  };
+  /** Statistics section configuration */
+  stats: {
+    /** Whether to display the stats section */
+    display: boolean;
+    /** Title of the stats section */
+    title: string;
+    /** Description of the stats section */
+    description: string;
+    /** List of statistics */
+    items: Array<{
+      /** The number to display */
+      number: string;
+      /** Label for the statistic */
+      label: string;
+    }>;
+  };
+  /** Recent activity section configuration */
+  recentActivity: {
+    /** Whether to display the recent activity section */
+    display: boolean;
+    /** Title of the recent activity section */
+    title: string;
+    /** Description of the recent activity section */
+    description: string;
+    /** List of recent activities */
+    activities: Array<{
+      /** Title of the activity */
+      title: string;
+      /** Description of the activity */
+      description: string;
+      /** Current status */
+      status: string;
+      /** Date of the activity */
+      date: string;
+    }>;
+  };
+  /** Testimonials section configuration */
+  testimonials: {
+    /** Whether to display the testimonials section */
+    display: boolean;
+    /** Title of the testimonials section */
+    title: string;
+    /** Description of the testimonials section */
+    description: string;
+    /** List of testimonials */
+    reviews: Array<{
+      /** Name of the person giving the testimonial */
+      name: string;
+      /** Role/position of the person */
+      role: string;
+      /** Content of the testimonial */
+      content: string;
+      /** Rating (1-5 stars) */
+      rating: number;
+    }>;
+  };
+  /** Call-to-Action section configuration */
+  callToAction: {
+    /** Whether to display the call-to-action section */
+    display: boolean;
+    /** Title of the call-to-action section */
+    title: string;
+    /** Description of the call-to-action section */
+    description: string;
+    /** Primary action button */
+    primaryButton: {
+      /** Button text */
+      text: string;
+      /** Button link */
+      href: string;
+    };
+    /** Secondary action button */
+    secondaryButton: {
+      /** Button text */
+      text: string;
+      /** Button link */
+      href: string;
+    };
+    /** List of features/benefits */
+    features: string[];
+  };
+  /** Process/Workflow section configuration */
+  process: {
+    /** Whether to display the process section */
+    display: boolean;
+    /** Title of the process section */
+    title: string;
+    /** Description of the process section */
+    description: string;
+    /** List of process steps */
+    steps: Array<{
+      /** Step number */
+      number: string;
+      /** Step title */
+      title: string;
+      /** Step description */
+      description: string;
+      /** Step icon */
+      icon: string;
+    }>;
+  };
   /** The sub text which appears below the headline */
   subline: React.ReactNode;
 }
@@ -229,18 +346,3 @@ export interface Contact extends BasePageConfig {}
  */
 export interface Work extends BasePageConfig {}
 
-/**
- * Gallery page configuration.
- * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
- */
-export interface Gallery extends BasePageConfig {
-  /** List of images in the gallery */
-  images: Array<{
-    /** Image source path */
-    src: string;
-    /** Image alt text */
-    alt: string;
-    /** Image orientation (horizontal/vertical) */
-    orientation: string;
-  }>;
-}

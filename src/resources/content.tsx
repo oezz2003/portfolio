@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog,  Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -8,7 +8,7 @@ const person: Person = {
   role: "Full Stack Engineer",
   avatar: "/images/avatar.jpg",
   email: "oezz8459@gmail.com",
-  phone: "+201000000000", // Add your phone number here for WhatsApp
+  phone: "+201040378725", // WhatsApp number
   location: "Africa/Cairo", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Arabic", "English"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -47,17 +47,143 @@ const home: Home = {
   description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Building scalable web applications with modern technologies</>,
   featured: {
+    display: false,
+    title: <></>,
+    href: "",
+  },
+  skills: {
     display: true,
-    title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Full Stack Development</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
-        </Text>
-      </Row>
-    ),
-    href: "/work/learning-management-platform",
+    title: "Technologies & Tools",
+    description: "Technologies I work with to build amazing web applications",
+    tools: [
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "Django", icon: "django" },
+      { name: "Express.js", icon: "express" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "JavaScript", icon: "javascript" },
+      { name: "Python", icon: "python" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Docker", icon: "docker" },
+      { name: "Git", icon: "git" },
+      { name: "AWS", icon: "aws" },
+      { name: "Vercel", icon: "vercel" },
+      { name: "Netlify", icon: "netlify" },
+    ],
+  },
+  stats: {
+    display: true,
+    title: "By the Numbers",
+    description: "A glimpse into my professional journey",
+    items: [
+      { number: "50+", label: "Projects Completed" },
+      { number: "3+", label: "Years Experience" },
+      { number: "25+", label: "Happy Clients" },
+      { number: "100%", label: "Client Satisfaction" },
+    ],
+  },
+  recentActivity: {
+    display: true,
+    title: "What I'm Working On",
+    description: "Current projects and recent achievements",
+    activities: [
+      {
+        title: "Building a Real Estate Platform",
+        description: "Developing a comprehensive property management system with React and Django",
+        status: "In Progress",
+        date: "2024-05-15",
+      },
+      {
+        title: "Learning AI/ML Integration",
+        description: "Exploring machine learning integration in web applications",
+        status: "Learning",
+        date: "2024-05-10",
+      },
+      {
+        title: "Open Source Contribution",
+        description: "Contributing to React ecosystem libraries and tools",
+        status: "Active",
+        date: "2024-05-08",
+      },
+    ],
+  },
+  testimonials: {
+    display: true,
+    title: "What Clients Say",
+    description: "Feedback from satisfied clients and colleagues",
+    reviews: [
+      {
+        name: "Sarah Johnson",
+        role: "CEO, TechStart Inc.",
+        content: "Ezzaldeen delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail and technical expertise made the project a huge success.",
+        rating: 5,
+      },
+      {
+        name: "Ahmed Hassan",
+        role: "Product Manager, Digital Solutions",
+        content: "Working with Ezzaldeen was a pleasure. He's professional, reliable, and always delivers high-quality code. Highly recommended for any web development project.",
+        rating: 5,
+      },
+      {
+        name: "Maria Rodriguez",
+        role: "Founder, EduTech Platform",
+        content: "The learning management system Ezzaldeen built for us is outstanding. It's user-friendly, scalable, and has significantly improved our operations.",
+        rating: 5,
+      },
+    ],
+  },
+  callToAction: {
+    display: true,
+    title: "Ready to Start Your Project?",
+    description: "Let's work together to bring your ideas to life with modern web technologies",
+    primaryButton: {
+      text: "Get In Touch",
+      href: "/contact",
+    },
+    secondaryButton: {
+      text: "View My Work",
+      href: "/work",
+    },
+    features: [
+      "Free consultation call",
+      "Quick response time (24h)",
+      "Transparent pricing",
+      "Ongoing support included",
+    ],
+  },
+  process: {
+    display: true,
+    title: "How I Work",
+    description: "My proven development process ensures successful project delivery",
+    steps: [
+      {
+        number: "01",
+        title: "Discovery & Planning",
+        description: "Understanding your requirements, goals, and target audience through detailed consultation and research.",
+        icon: "🔍",
+      },
+      {
+        number: "02",
+        title: "Design & Prototyping",
+        description: "Creating wireframes, mockups, and interactive prototypes to visualize the final product.",
+        icon: "🎨",
+      },
+      {
+        number: "03",
+        title: "Development & Testing",
+        description: "Building the application with clean, scalable code and thorough testing at every stage.",
+        icon: "⚡",
+      },
+      {
+        number: "04",
+        title: "Deployment & Support",
+        description: "Launching your project and providing ongoing maintenance and support for optimal performance.",
+        icon: "🚀",
+      },
+    ],
   },
   subline: (
     <>
@@ -263,56 +389,6 @@ const work: Work = {
   // All projects will be listed on the /home and /work routes
 };
 
-const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
-};
 
 const contact = {
   path: "/contact",
@@ -321,4 +397,4 @@ const contact = {
   description: `Get in touch with ${person.name} - ${person.role}`,
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, contact };
+export { person, social, newsletter, home, about, blog, work, contact };

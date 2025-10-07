@@ -1,178 +1,229 @@
-import { Column, Heading, Meta, Schema, Text, Input, Button, Row, Flex, Card, Icon, SmartLink } from "@once-ui-system/core";
-import { social, person } from "@/resources";
+import { Column, Heading, Meta, Schema, Text, Row, Flex, Card, Icon, SmartLink } from "@once-ui-system/core";
+import { social, person, contact } from "@/resources";
 import { baseURL } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
-    title: "Contact - " + person.name,
-    description: `Get in touch with ${person.name} - ${person.role}`,
+    title: contact.title,
+    description: contact.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent("Contact - " + person.name)}`,
-    path: "/contact",
+    image: `/api/og/generate?title=${encodeURIComponent(contact.title)}`,
+    path: contact.path,
   });
 }
 
 export default function Contact() {
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <Column maxWidth="m" paddingTop="24" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={`Contact - ${person.name}`}
-        description={`Get in touch with ${person.name} - ${person.role}`}
-        path="/contact"
-        image={`/api/og/generate?title=${encodeURIComponent("Contact - " + person.name)}`}
+        title={contact.title}
+        description={contact.description}
+        path={contact.path}
+        image={`/api/og/generate?title=${encodeURIComponent(contact.title)}`}
       />
       
-      <Heading marginBottom="l" variant="heading-strong-xl" marginLeft="24">
+      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
         Get In Touch
       </Heading>
       
       <Column fillWidth gap="40" paddingX="24">
-        <Text variant="body-default-l" onBackground="neutral-weak">
+        <Text variant="body-default-l" onBackground="neutral-weak" align="center">
           I'm always interested in hearing about new opportunities and exciting projects. 
           Feel free to reach out if you'd like to connect or discuss potential collaborations.
         </Text>
 
-        {/* Contact Form */}
-        <Card fillWidth padding="24" background="neutral-alpha-weak" radius="l">
-          <form action={`mailto:${person.email}`} method="GET">
-            <Column gap="16">
-              <Column marginBottom="16">
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                />
-              </Column>
-              <Column marginBottom="16">
-                <Input
-                  id="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
-                  type="email"
-                />
-              </Column>
-              <Column marginBottom="16">
-                <Input
-                  id="phone"
-                  name="phone"
-                  placeholder="Your Phone Number (Optional)"
-                  type="tel"
-                />
-              </Column>
-              <Column marginBottom="16">
-                <Input
-                  id="subject"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                />
-              </Column>
-              <Column marginBottom="16">
-                <textarea
-                  id="additional-info"
-                  name="additional-info"
-                  placeholder="Additional Information (Optional)"
-                  rows={5}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    border: '1px solid var(--color-neutral-alpha-medium)',
-                    backgroundColor: 'var(--color-background-surface)',
-                    color: 'var(--color-foreground-primary)',
-                    fontFamily: 'inherit',
-                    fontSize: '14px',
-                    resize: 'vertical'
-                  }}
-                />
-              </Column>
-              <Row horizontal="end">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="m"
-                  prefixIcon="send"
-                >
-                  Send Email
-                </Button>
-              </Row>
-            </Column>
-          </form>
-        </Card>
+        {/* Contact Information Cards */}
+        <Column gap="24">
+          <Heading as="h2" variant="heading-strong-l" align="center">
+            Get In Touch
+          </Heading>
+          
+          <Flex fillWidth gap="24" wrap horizontal="center">
+            {/* Email Card */}
+            <SmartLink
+              href="mailto:oezz8459@gmail.com"
+              style={{ flex: 1, minWidth: '300px', maxWidth: '400px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="32"
+                background="brand-alpha-weak"
+                radius="l"
+                className="hover:bg-brand-alpha-medium transition-colors duration-200"
+              >
+                <Column gap="16" align="center">
+                  <Icon name="email" size="xl" />
+                  <Column gap="8" align="center">
+                    <Text variant="heading-strong-m" onBackground="neutral-strong">
+                      Email Me
+                    </Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                      Send me an email directly
+                    </Text>
+                    <Text variant="body-strong-s" onBackground="brand-strong" align="center" className="break-all">
+                      oezz8459@gmail.com
+                    </Text>
+                  </Column>
+                </Column>
+              </Card>
+            </SmartLink>
 
-        {/* WhatsApp Contact Card */}
-        <SmartLink
-          href={`https://wa.me/${person.phone}`}
-          style={{ textDecoration: 'none' }}
-        >
+            {/* WhatsApp Card */}
+            <SmartLink
+              href="https://wa.me/201040378725"
+              style={{ flex: 1, minWidth: '300px', maxWidth: '400px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="32"
+                background="brand-alpha-weak"
+                radius="l"
+                className="hover:bg-brand-alpha-medium transition-colors duration-200"
+              >
+                <Column gap="16" align="center">
+                  <Icon name="whatsapp" size="xl" />
+                  <Column gap="8" align="center">
+                    <Text variant="heading-strong-m" onBackground="neutral-strong">
+                      WhatsApp
+                    </Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                      Chat with me instantly
+                    </Text>
+                    <Text variant="body-strong-s" onBackground="brand-strong" align="center">
+                      +20 104 037 8725
+                    </Text>
+                  </Column>
+                </Column>
+              </Card>
+            </SmartLink>
+          </Flex>
+        </Column>
+
+        {/* Social Media Links */}
+        <Column gap="24">
+          <Heading as="h2" variant="heading-strong-l" align="center">
+            Connect With Me
+          </Heading>
+          
+          <Flex fillWidth gap="20" wrap horizontal="center">
+            {/* Facebook Card */}
+            <SmartLink
+              href="https://www.facebook.com/ezzaldeen.osama2003"
+              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="24"
+                background="neutral-alpha-weak"
+                radius="l"
+                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
+              >
+                <Row gap="16" vertical="center">
+                  <Icon name="facebook" size="l" />
+                  <Column>
+                    <Text variant="body-strong-l">Facebook</Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      Follow me on Facebook
+                    </Text>
+                  </Column>
+                </Row>
+              </Card>
+            </SmartLink>
+
+            {/* LinkedIn Card */}
+            <SmartLink
+              href="https://www.linkedin.com/in/ezz-osama/"
+              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="24"
+                background="neutral-alpha-weak"
+                radius="l"
+                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
+              >
+                <Row gap="16" vertical="center">
+                  <Icon name="linkedin" size="l" />
+                  <Column>
+                    <Text variant="body-strong-l">LinkedIn</Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      Connect professionally
+                    </Text>
+                  </Column>
+                </Row>
+              </Card>
+            </SmartLink>
+
+            {/* Instagram Card */}
+            <SmartLink
+              href="https://www.instagram.com/ezzaldeen_osama/"
+              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="24"
+                background="neutral-alpha-weak"
+                radius="l"
+                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
+              >
+                <Row gap="16" vertical="center">
+                  <Icon name="instagram" size="l" />
+                  <Column>
+                    <Text variant="body-strong-l">Instagram</Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      Follow my journey
+                    </Text>
+                  </Column>
+                </Row>
+              </Card>
+            </SmartLink>
+
+            {/* GitHub Card */}
+            <SmartLink
+              href="https://github.com/oezz2003"
+              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="24"
+                background="neutral-alpha-weak"
+                radius="l"
+                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
+              >
+                <Row gap="16" vertical="center">
+                  <Icon name="github" size="l" />
+                  <Column>
+                    <Text variant="body-strong-l">GitHub</Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      View my code repositories
+                    </Text>
+                  </Column>
+                </Row>
+              </Card>
+            </SmartLink>
+          </Flex>
+
+          {/* Location Card */}
           <Card
             fillWidth
             padding="24"
-            background="brand-alpha-weak"
+            background="neutral-alpha-weak"
             radius="l"
+            className="max-w-[400px] mx-auto"
           >
-            <Row gap="16" vertical="center">
-              <Icon name="whatsapp" size="m" />
-              <Column>
-                <Text variant="body-strong-m">WhatsApp</Text>
+            <Row gap="16" vertical="center" horizontal="center">
+              <Icon name="location" size="l" />
+              <Column align="center">
+                <Text variant="body-strong-l">Location</Text>
                 <Text variant="body-default-s" onBackground="neutral-weak">
-                  Chat with me on WhatsApp
+                  {person.location}
                 </Text>
               </Column>
             </Row>
           </Card>
-        </SmartLink>
-
-        {/* Social Media Cards */}
-        <Heading as="h2" variant="heading-strong-l" marginTop="xl">
-          Connect With Me
-        </Heading>
-        
-        <Flex fillWidth gap="16" wrap>
-          {social.map((item) => (
-            item.link && (
-              <SmartLink
-                key={item.name}
-                href={item.link}
-                style={{ flex: 1, minWidth: '200px' }}
-              >
-                <Card
-                  fillWidth
-                  padding="16"
-                  background="neutral-alpha-weak"
-                  radius="m"
-                >
-                  <Row gap="12" vertical="center">
-                    <Icon name={item.icon} size="m" />
-                    <Column>
-                      <Text variant="body-strong-m">{item.name}</Text>
-                      <Text variant="body-default-s" onBackground="neutral-weak">
-                        {item.name === "Email" ? "Send me an email" : `Connect on ${item.name}`}
-                      </Text>
-                    </Column>
-                  </Row>
-                </Card>
-              </SmartLink>
-            )
-          ))}
-        </Flex>
-
-        {/* Additional Contact Info */}
-        <Card fillWidth padding="24" background="neutral-alpha-weak" radius="l">
-          <Row gap="16" vertical="center">
-            <Icon name="location" size="m" />
-            <Column>
-              <Text variant="body-strong-m">Location</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {person.location}
-              </Text>
-            </Column>
-          </Row>
-        </Card>
+        </Column>
       </Column>
     </Column>
   );

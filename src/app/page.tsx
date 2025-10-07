@@ -12,8 +12,7 @@ import {
   Line,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
+import { Mailchimp, Skills, Statistics, RecentActivity, Testimonials, CallToAction, Process } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {
@@ -101,7 +100,22 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Skills />
+      </RevealFx>
+      <RevealFx translateY="20" delay={0.8}>
+        <Statistics />
+      </RevealFx>
+      <RevealFx translateY="24" delay={1.0}>
+        <RecentActivity />
+      </RevealFx>
+      <RevealFx translateY={28} delay={1.2}>
+        <Testimonials />
+      </RevealFx>
+      <RevealFx translateY={32} delay={1.4}>
+        <Process />
+      </RevealFx>
+      <RevealFx translateY={36} delay={1.6}>
+        <CallToAction />
       </RevealFx>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
@@ -123,7 +137,6 @@ export default function Home() {
           </Row>
         </Column>
       )}
-      <Projects range={[2]} />
       <Mailchimp />
     </Column>
   );
