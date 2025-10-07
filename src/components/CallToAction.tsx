@@ -32,7 +32,7 @@ export function CallToAction() {
           </Text>
         </Column>
         
-        <Row gap="16" horizontal="center" wrap="wrap" marginTop="16">
+        <Row gap="16" horizontal="center"  marginTop="16">
           <Button
             href={home.callToAction.primaryButton.href}
             variant="primary"
@@ -58,7 +58,7 @@ export function CallToAction() {
         <Row 
           gap="24" 
           horizontal="center" 
-          wrap="wrap" 
+          
           marginTop="32"
           paddingX="24"
         >
