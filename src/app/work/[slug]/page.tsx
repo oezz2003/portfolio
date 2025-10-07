@@ -92,14 +92,19 @@ export default async function Project({
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
+      <Column maxWidth="s" gap="8" horizontal="center" align="center">
         <SmartLink href="/work">
           <Text variant="label-strong-m">Projects</Text>
         </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
+        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="4">
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
         </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+        {post.metadata.role && (
+          <Text variant="label-default-m" onBackground="neutral-weak">
+            Role: {post.metadata.role}
+          </Text>
+        )}
       </Column>
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">
@@ -120,6 +125,21 @@ export default async function Project({
       </Row>
       {post.metadata.images.length > 0 && (
         <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
+      )}
+      {post.metadata.challengesSolutions && post.metadata.challengesSolutions.length > 0 && (
+        <Column as="section" maxWidth="xs" gap="16" paddingX="s">
+          <Heading as="h2" variant="heading-strong-xl">Challenges & Solutions</Heading>
+          <Column gap="12">
+            {post.metadata.challengesSolutions.map((item, i) => (
+              <Column key={i} gap="8" border="neutral-alpha-medium" radius="m" padding="s">
+                <Text variant="label-default-m" onBackground="neutral-weak">Challenge</Text>
+                <Text variant="body-default-m" onBackground="neutral-medium">{item.challenge}</Text>
+                <Text variant="label-default-m" onBackground="neutral-weak" marginTop="8">Solution</Text>
+                <Text variant="body-default-m" onBackground="neutral-medium">{item.solution}</Text>
+              </Column>
+            ))}
+          </Column>
+        </Column>
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
