@@ -45,7 +45,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building scalable web applications with modern technologies</>,
+  headline: <>Showcase Your Business to the World Effortlessly</>,
   featured: {
     display: false,
     title: <></>,
@@ -187,8 +187,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Ezzaldeen, a Full Stack Engineer based in Egypt, specializing in React, Next.js, Django, and Express.js.
-      <br /> I build scalable web applications with clean code and optimal performance.
+      Empowering your business with elegant, high-performing digital solutions.
     </>
   ),
 };
