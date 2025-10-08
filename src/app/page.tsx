@@ -12,7 +12,7 @@ import {
   Line,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp, Skills, Statistics, RecentActivity, Testimonials, CallToAction, Process } from "@/components";
+import { Mailchimp, Skills, Statistics, RecentActivity, Testimonials, CallToAction, Process, Packages } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {
@@ -105,10 +105,10 @@ export default function Home() {
       <RevealFx translateY="20" delay={0.8}>
         <Statistics />
       </RevealFx>
-      <RevealFx translateY="24" delay={1.0}>
-        <RecentActivity />
-      </RevealFx>
       <RevealFx translateY={28} delay={1.2}>
+        <Packages />
+      </RevealFx>
+      <RevealFx translateY={30} delay={1.3}>
         <Testimonials />
       </RevealFx>
       <RevealFx translateY={32} delay={1.4}>

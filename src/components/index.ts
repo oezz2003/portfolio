@@ -14,3 +14,4 @@ export { RecentActivity } from "@/components/RecentActivity";
 export { Testimonials } from "@/components/Testimonials";
 export { CallToAction } from "@/components/CallToAction";
 export { Process } from "@/components/Process";
+export { Packages } from "@/components/Packages";
