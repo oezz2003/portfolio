@@ -19,7 +19,7 @@ const packages: PackageItem[] = [
     icon: "globe",
     tagline: "Build a stunning digital identity.",
     description:
-      "I craft modern, responsive websites optimized for SEO and conversions — designed to reflect your brand and make a powerful first impression.",
+      " responsive websites designed to reflect your brand and make a powerful first impression.",
     features: [
       "Custom Website or Landing Page",
       "SEO Optimization",
@@ -36,7 +36,7 @@ const packages: PackageItem[] = [
     icon: "cpu",
     tagline: "Digitize your operations.",
     description:
-      "I develop integrated ERP, CRM, and POS systems that automate workflows, streamline data management, and enhance productivity across your business.",
+      "integrated ERP, CRM, and POS systems that enhance productivity across your business.",
     features: [
       "ERP & CRM Integration",
       "POS System",
@@ -53,7 +53,7 @@ const packages: PackageItem[] = [
     icon: "mobileScreenButton",
     tagline: "Build next‑gen digital products.",
     description:
-      "From concept to launch, I build custom mobile apps and AI‑powered solutions that drive engagement and deliver measurable results.",
+      " build custom mobile apps and AI‑powered solutions that drive engagement and deliver measurable results.",
     features: [
       "Android & iOS Development",
       "AI Chatbots & Automation Tools",
