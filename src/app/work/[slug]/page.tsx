@@ -83,9 +83,7 @@ export default async function Project({
         description={post.metadata.summary}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.publishedAt}
-        image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-        }
+        image={post.metadata.image || post.metadata.images?.[0] || work.image}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
