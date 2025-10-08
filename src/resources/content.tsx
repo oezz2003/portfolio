@@ -206,7 +206,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "wa.me/201040378725",
   },
   intro: {
     display: true,
