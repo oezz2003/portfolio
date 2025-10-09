@@ -206,7 +206,8 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "wa.me/201040378725",
+    link: "https://wa.me/201040378725?text=Hi%20Ezzaldeen%2C%20I'm%20interested%20in%20your%20services.",
+
   },
   intro: {
     display: true,
