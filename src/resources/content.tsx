@@ -214,9 +214,13 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Ezzaldeen is an Egypt-based Full Stack Engineer with a passion for building scalable web applications
-        and transforming complex challenges into simple, elegant solutions. His work spans full-stack development,
-        system architecture, and delivering high-quality user experiences with clean code and optimal performance.
+       I’m a Full Stack Engineer helping businesses turn their ideas into powerful digital experiences.
+       I design and build scalable, high-performing web applications that drive growth, improve efficiency,
+       and deliver seamless user experiences across platforms.
+       My expertise spans React, Next.js, Django, and modern web development practices, with a focus on clean,
+       maintainable code and efficient performance. I’m committed to building products that solve real problems
+       and drive business growth.
+       
       </>
     ),
   },
