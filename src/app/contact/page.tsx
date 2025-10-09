@@ -156,53 +156,6 @@ export default function Contact() {
               </Card>
             </SmartLink>
 
-            {/* Instagram Card */}
-            <SmartLink
-              href="https://www.instagram.com/ezzaldeen_osama/"
-              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
-            >
-              <Card
-                fillWidth
-                padding="24"
-                background="neutral-alpha-weak"
-                radius="l"
-                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
-              >
-                <Row gap="16" vertical="center">
-                  <Icon name="instagram" size="l" />
-                  <Column>
-                    <Text variant="body-strong-l">Instagram</Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      Follow my journey
-                    </Text>
-                  </Column>
-                </Row>
-              </Card>
-            </SmartLink>
-
-            {/* GitHub Card */}
-            <SmartLink
-              href="https://github.com/oezz2003"
-              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
-            >
-              <Card
-                fillWidth
-                padding="24"
-                background="neutral-alpha-weak"
-                radius="l"
-                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
-              >
-                <Row gap="16" vertical="center">
-                  <Icon name="github" size="l" />
-                  <Column>
-                    <Text variant="body-strong-l">GitHub</Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      View my code repositories
-                    </Text>
-                  </Column>
-                </Row>
-              </Card>
-            </SmartLink>
           </Flex>
 
           {/* Location Card */}
