@@ -22,11 +22,7 @@ const newsletter: Newsletter = {
 const social: Social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
-  {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/ezzaldeen",
-  },
+  
   {
     name: "LinkedIn",
     icon: "linkedin",
