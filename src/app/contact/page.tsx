@@ -151,9 +151,8 @@ export default function Contact() {
               </Card>
             </SmartLink>
 
-            {/* LinkedIn Card */}
             <SmartLink
-              href="https://www.linkedin.com/in/ezz-osama/"
+              href="www.linkedin.com/in/ezz-osama"
               style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
             >
               <Card
