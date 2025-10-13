@@ -7,9 +7,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: contact.title,
     description: contact.description,
+    alternates: {
+      canonical: baseURL + contact.path,
+    },
     openGraph: {
       title: contact.title,
       description: contact.description,
+      url: baseURL + contact.path,
       images: [
         {
           url: baseURL + (contact.image || "/images/og/home e.jpg"),

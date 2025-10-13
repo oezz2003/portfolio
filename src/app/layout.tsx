@@ -13,7 +13,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import { baseURL, effects, fonts, style, dataStyle, home, person, social } from "@/resources";
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -59,8 +59,39 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/avatar.jpg" type="image/jpeg" />
         <link rel="shortcut icon" href="/images/avatar.jpg" type="image/jpeg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": person.name,
+              "jobTitle": person.role,
+              "image": baseURL + person.avatar,
+              "url": baseURL,
+              "sameAs": social.map(s => s.link),
+              "email": person.email,
+              "telephone": person.phone,
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": person.location.split('/')[1]
+              },
+              "knowsAbout": [
+                "Full Stack Development",
+                "React",
+                "Next.js",
+                "Django",
+                "TypeScript",
+                "Python",
+                "Node.js"
+              ]
+            })
+          }}
+        />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{

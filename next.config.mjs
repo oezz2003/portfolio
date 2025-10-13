@@ -17,6 +17,10 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+    formats: ['image/webp', 'image/avif'],
+  },
+  experimental: {
+    optimizeCss: true,
   },
   sassOptions: {
     compiler: "modern",
