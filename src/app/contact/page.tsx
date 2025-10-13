@@ -1,15 +1,30 @@
-import { Column, Heading, Meta, Schema, Text, Row, Flex, Card, Icon, SmartLink } from "@once-ui-system/core";
+import { Column, Heading, Schema, Text, Row, Flex, Card, Icon, SmartLink } from "@once-ui-system/core";
 import { social, person, contact } from "@/resources";
 import { baseURL } from "@/resources";
+import type { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return Meta.generate({
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: contact.title,
     description: contact.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(contact.title)}`,
-    path: contact.path,
-  });
+    openGraph: {
+      title: contact.title,
+      description: contact.description,
+      images: [
+        {
+          url: baseURL + (contact.image || "/images/og/home e.jpg"),
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: contact.title,
+      description: contact.description,
+      images: [baseURL + (contact.image || "/images/og/home e.jpg")],
+    },
+  };
 }
 
 export default function Contact() {
@@ -21,7 +36,7 @@ export default function Contact() {
         title={contact.title}
         description={contact.description}
         path={contact.path}
-        image={`/api/og/generate?title=${encodeURIComponent(contact.title)}`}
+        image={contact.image || "/images/og/home e.jpg"}
       />
       
       <Heading marginBottom="l" variant="heading-strong-xl" align="center">

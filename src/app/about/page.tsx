@@ -8,7 +8,6 @@ import {
   Media,
   Tag,
   Text,
-  Meta,
   Schema,
   Row,
 } from "@once-ui-system/core";
@@ -16,15 +15,30 @@ import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import type { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return Meta.generate({
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: about.title,
     description: about.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
-    path: about.path,
-  });
+    openGraph: {
+      title: about.title,
+      description: about.description,
+      images: [
+        {
+          url: baseURL + (about.image || "/images/og/home e.jpg"),
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: about.title,
+      description: about.description,
+      images: [baseURL + (about.image || "/images/og/home e.jpg")],
+    },
+  };
 }
 
 export default function About() {

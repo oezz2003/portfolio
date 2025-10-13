@@ -44,13 +44,29 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return Meta.generate({
+  const ogImage = post.metadata.image || "/images/og/blog.jpg";
+
+  return {
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-  });
+    openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [
+        {
+          url: baseURL + ogImage,
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [baseURL + ogImage],
+    },
+  };
 }
 
 export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
@@ -83,10 +99,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
             dateModified={post.metadata.publishedAt}
-            image={
-              post.metadata.image ||
-              `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-            }
+            image={post.metadata.image || "/images/og/blog.jpg"}
             author={{
               name: person.name,
               url: `${baseURL}${about.path}`,

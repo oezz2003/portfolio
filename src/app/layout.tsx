@@ -8,22 +8,36 @@ import {
   Background,
   Column,
   Flex,
-  Meta,
   opacity,
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import type { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return Meta.generate({
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: home.title,
     description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
+    openGraph: {
+      title: home.title,
+      description: home.description,
+      images: [
+        {
+          url: baseURL + home.image,
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: home.title,
+      description: home.description,
+      images: [baseURL + home.image],
+    },
+  };
 }
 
 export default async function RootLayout({

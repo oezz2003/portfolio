@@ -1,16 +1,31 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Schema } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, person, newsletter } from "@/resources";
+import type { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return Meta.generate({
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: blog.title,
     description: blog.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-    path: blog.path,
-  });
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+      images: [
+        {
+          url: baseURL + (blog.image || "/images/og/home e.jpg"),
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.description,
+      images: [baseURL + (blog.image || "/images/og/home e.jpg")],
+    },
+  };
 }
 
 export default function Blog() {
@@ -22,7 +37,7 @@ export default function Blog() {
         title={blog.title}
         description={blog.description}
         path={blog.path}
-        image={`/api/og/generate?title=${encodeURIComponent(blog.title)}`}
+        image={blog.image || "/images/og/home e.jpg"}
         author={{
           name: person.name,
           url: `${baseURL}/blog`,

@@ -197,6 +197,7 @@ const about: About = {
   label: "About",
   title: `About – ${person.name}`,
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  image: "/images/og/about.jpg",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -380,6 +381,7 @@ const blog: Blog = {
   label: "Blog",
   title: "Writing about full-stack development and tech...",
   description: `Read what ${person.name} has been up to recently`,
+  image: "/images/og/blog.jpg",
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -400,6 +402,7 @@ const contact = {
   label: "Contact",
   title: `Contact – ${person.name}`,
   description: `Get in touch with ${person.name} - ${person.role}`,
+  image: "/images/og/contact.jpg",
 };
 
 export { person, social, newsletter, home, about, blog, work, contact };

@@ -43,13 +43,29 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return Meta.generate({
+  const ogImage = post.metadata.image || "/images/og/home e.jpg";
+
+  return {
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${work.path}/${post.slug}`,
-  });
+    openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [
+        {
+          url: baseURL + ogImage,
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [baseURL + ogImage],
+    },
+  };
 }
 
 export default async function Project({

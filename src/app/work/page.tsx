@@ -1,15 +1,30 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Schema } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+import type { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return Meta.generate({
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: work.title,
     description: work.description,
-    baseURL: baseURL,
-    image: work.image,
-    path: work.path,
-  });
+    openGraph: {
+      title: work.title,
+      description: work.description,
+      images: [
+        {
+          url: baseURL + work.image,
+          width: 1280,
+          height: 720,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: work.title,
+      description: work.description,
+      images: [baseURL + work.image],
+    },
+  };
 }
 
 export default function Work() {
