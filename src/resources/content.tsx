@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ezzaldeen",
   lastName: "Osama",
   name: `Ezzaldeen Osama`,
-  role: "Full Stack Engineer",
+  role: "Software Architect | Technical Lead",
   avatar: "/images/avatar.jpg",
   email: "oezz8459@gmail.com",
   phone: "+201040378725", // WhatsApp number
@@ -20,13 +20,15 @@ const newsletter: Newsletter = {
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/ezz-osama",
+  },
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/oezz2003",
   },
   {
     name: "Email",
@@ -41,7 +43,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Showcase Your Business to the World Effortlessly</>,
+  headline: <>Architecting the Future of Digital Ecosystems</>,
   featured: {
     display: false,
     title: <></>,
@@ -72,13 +74,13 @@ const home: Home = {
   },
   stats: {
     display: true,
-    title: "By the Numbers",
-    description: "A glimpse into my professional journey",
+    title: "Impact by the Numbers",
+    description: "Measuring technical excellence and business value",
     items: [
-      { number: "50+", label: "Projects Completed" },
-      { number: "3+", label: "Years Experience" },
-      { number: "25+", label: "Happy Clients" },
-      { number: "100%", label: "Client Satisfaction" },
+      { number: "15+", label: "Enterprise Systems Architected" },
+      { number: "40%", label: "Average Tech Debt Reduction" },
+      { number: "99.9%", label: "System Reliability & Uptime" },
+      { number: "25+", label: "Digital Transformations Led" },
     ],
   },
   recentActivity: {
@@ -152,38 +154,38 @@ const home: Home = {
   },
   process: {
     display: true,
-    title: "How I Work",
-    description: "My proven development process ensures successful project delivery",
+    title: "Architectural Methodology",
+    description: "A strategic approach to building scalable and sustainable digital solutions",
     steps: [
       {
         number: "01",
-        title: "Discovery & Planning",
-        description: "Understanding your requirements, goals, and target audience through detailed consultation and research.",
+        title: "Strategic Discovery",
+        description: "Deep-diving into business goals and technical constraints to align technology with long-term strategy.",
         icon: "",
       },
       {
         number: "02",
-        title: "Design & Prototyping",
-        description: "Creating wireframes, mockups, and interactive prototypes to visualize the final product.",
+        title: "System Architecture",
+        description: "Designing modular, high-availability systems using Microservices, Event-Driven, and cloud-native patterns.",
         icon: "",
       },
       {
         number: "03",
-        title: "Development & Testing",
-        description: "Building the application with clean, scalable code and thorough testing at every stage.",
+        title: "Technical Leadership",
+        description: "Implementing robust solutions with a focus on 'Clean Architecture', security, and high performance.",
         icon: "",
       },
       {
         number: "04",
-        title: "Deployment & Support",
-        description: "Launching your project and providing ongoing maintenance and support for optimal performance.",
+        title: "Operational Excellence",
+        description: "Optimizing deployment pipelines and monitoring infrastructures to ensure continuous delivery and scalability.",
         icon: "",
       },
     ],
   },
   subline: (
     <>
-      Empowering your business with elegant, high-performing digital solutions.
+      Bridging the gap between robust software engineering and strategic business growth.
     </>
   ),
 };
@@ -211,13 +213,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-       I’m a Full Stack Engineer helping businesses turn their ideas into powerful digital experiences.
-       I design and build scalable, high-performing web applications that drive growth, improve efficiency,
-       and deliver seamless user experiences across platforms.
-       My expertise spans React, Next.js, Django, and modern web development practices, with a focus on clean,
-       maintainable code and efficient performance. I’m committed to building products that solve real problems
-       and drive business growth.
-       
+        Visionary Software Architect and Technical Lead with 4+ years of experience in designing and implementing high-availability, distributed systems. 
+        Expertise in Microservices architecture, cloud-native solutions, and modern data modeling using Prisma and Drizzle. 
+        Proven track record of leading technical teams through complex digital transformations, including ERP systems and AI-integrated educational platforms. 
+        Combines a deep background in Engineering fundamentals with a Business Administration perspective to architect solutions that maximize ROI and operational scalability.
       </>
     ),
   },
@@ -226,148 +225,127 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Freelance",
-        timeframe: "2022 – Present",
-        role: "Full Stack Developer",
+        company: "ZAK Solutions",
+        timeframe: "Dec 2025 – Present",
+        role: "Lead Software Architect & Tech Lead",
         achievements: [
           <>
-            Developed and deployed multiple production-ready websites for clients across business, education, and healthcare industries.
+            Architected a modular ERP ecosystem for industrial glass installation, designing a scalable schema for inventory, accounting, and logistics that supports multi-tenant operations.
           </>,
           <>
-            Designed full-stack systems integrating React/Next.js frontends with Django/Express.js backends.
+            Engineered the backend architecture for an AI-enabled medical MCQ platform, integrating AI-driven explanation engines and real-time performance analytics.
           </>,
           <>
-            Implemented complex CRUD operations, authentication flows, and role-based authorization systems.
+            Established internal "Clean Architecture" standards, reducing technical debt and improving developer onboarding efficiency by 25%.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Freelance",
+        timeframe: "Jan 2022 – Present",
+        role: "Senior Full Stack Engineer",
+        achievements: [
+          <>
+            Designed and deployed a Scalable LMS Architecture for 500+ concurrent users, implementing optimized SQL patterns that improved data throughput by 20%.
           </>,
           <>
-            Managed deployment pipelines using Netlify, Vercel, and Firebase Hosting.
+            Architected high-traffic POS systems and "Smart Menu" solutions for the hospitality sector, ensuring 99.9% SEO visibility and a 30% increase in conversion rates.
+          </>,
+          <>
+            Implemented AWS S3-based distributed storage pipelines for high-volume media (e.g., Eagle Divers), ensuring global low-latency access.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Freelance",
+        timeframe: "2020 – 2022",
+        role: "UI/UX & Graphic Designer",
+        achievements: [
+          <>
+            Developed comprehensive design systems and brand identities, ensuring visual consistency across multi-platform digital products.
           </>,
         ],
         images: [],
       },
     ],
   },
-  studies: {
-    display: false, // set to false to hide this section
-    title: "Studies",
-    institutions: [],
-  },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Technical Expertise",
     skills: [
       {
-        title: "Frontend Development",
+        title: "System Architecture",
         description: (
-          <>Expert in building responsive and interactive user interfaces with modern frameworks.</>
+          <>Expertise in designing high-availability, distributed systems and cloud-native solutions.</>
         ),
         tags: [
-          {
-            name: "React.js",
-            icon: "react",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Vite",
-            icon: "vite",
-          },
-          {
-            name: "Tailwind CSS",
-            icon: "tailwind",
-          },
-          {
-            name: "Redux",
-            icon: "redux",
-          },
-          {
-            name: "TypeScript",
-            icon: "typescript",
-          },
+          { name: "Microservices", icon: "" },
+          { name: "Event-Driven Architecture", icon: "" },
+          { name: "Serverless", icon: "" },
+          { name: "RESTful & GraphQL APIs", icon: "" },
+          { name: "Clean Architecture", icon: "" },
         ],
         images: [],
       },
       {
-        title: "Backend Development",
+        title: "Data Engineering",
         description: (
-          <>Strong backend knowledge with focus on RESTful APIs and authentication systems.</>
+          <>High-performance data modeling and caching strategies for scalable applications.</>
         ),
         tags: [
-          {
-            name: "Django",
-            icon: "django",
-          },
-          {
-            name: "Express.js",
-            icon: "express",
-          },
-          {
-            name: "Node.js",
-            icon: "nodejs",
-          },
-          {
-            name: "RESTful APIs",
-            icon: "api",
-          },
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "Redis", icon: "" },
+          { name: "Supabase", icon: "" },
+          { name: "Prisma", icon: "" },
+          { name: "Drizzle ORM", icon: "" },
+          { name: "Firebase", icon: "firebase" },
         ],
         images: [],
       },
       {
-        title: "Databases",
+        title: "Frontend Architecture",
         description: (
-          <>Experience with various database systems for different application needs.</>
+          <>Next.js specialist focusing on performance optimization and design systems.</>
         ),
         tags: [
-          {
-            name: "MySQL",
-            icon: "mysql",
-          },
-          {
-            name: "MongoDB",
-            icon: "mongodb",
-          },
-          {
-            name: "SQLite",
-            icon: "sqlite",
-          },
-          {
-            name: "Firebase",
-            icon: "firebase",
-          },
+          { name: "Next.js (App Router)", icon: "nextjs" },
+          { name: "React", icon: "react" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "Tailwind CSS", icon: "tailwind" },
+          { name: "Performance Optimization (SSR/ISR)", icon: "" },
         ],
         images: [],
       },
       {
-        title: "Tools & Platforms",
+        title: "Cloud & Infrastructure",
         description: (
-          <>Proficient in development tools and deployment platforms.</>
+          <>Cloud-native deployment and infrastructure orchestration.</>
         ),
         tags: [
-          {
-            name: "Git",
-            icon: "git",
-          },
-          {
-            name: "GitHub",
-            icon: "github",
-          },
-          {
-            name: "Docker",
-            icon: "docker",
-          },
-          {
-            name: "Netlify",
-            icon: "netlify",
-          },
-          {
-            name: "Vercel",
-            icon: "vercel",
-          },
+          { name: "AWS (S3, Cloudfront)", icon: "aws" },
+          { name: "Docker", icon: "docker" },
+          { name: "CI/CD Pipeline Design", icon: "" },
+          { name: "VPS Orchestration", icon: "" },
+          { name: "Linux Customization", icon: "" },
         ],
         images: [],
-      },  
+      },
+    ],
+  },
+  studies: {
+    display: true, // set to false to hide this section
+    title: "Studies",
+    institutions: [
+      {
+        name: "Higher Technological Institute (HTI), Egypt",
+        description: <>Bachelor of Business Administration (BBA) | Expected 2029. Focus: Product Management, Business Analytics, and Strategic Branding.</>,
+      },
+      {
+        name: "EAE&AT, Egypt",
+        description: <>Undergraduate Coursework in Engineering (2020 – 2024). Completed 4 years of intensive study in Software Engineering fundamentals, Calculus, and Analytical Thinking.</>,
+      },
     ],
   },
 };
