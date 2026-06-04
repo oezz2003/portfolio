@@ -93,7 +93,7 @@ export const Header = () => {
         >
           {/* Left: Name/Branding */}
           <Row vertical="center" gap="12" paddingLeft="12">
-            <Text weight="strong" variant="body-default-m" style={{ letterSpacing: "-0.02em", color: "#ffffff" }}>
+            <Text variant="body-strong-m" style={{ letterSpacing: "-0.02em", color: "#ffffff" }}>
               Ezzaldeen Osama.
             </Text>
           </Row>
