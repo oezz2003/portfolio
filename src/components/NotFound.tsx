@@ -1,8 +1,4 @@
-"use client";
-
-import { Column } from "@once-ui-system/core/components/Column";
-import { Heading } from "@once-ui-system/core/components/Heading";
-import { Text } from "@once-ui-system/core/components/Text";
+import { Column, Heading, Text } from "@once-ui-system/core";
 
 export default function NotFound() {
   return (

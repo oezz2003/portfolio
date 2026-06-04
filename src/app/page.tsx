@@ -3,7 +3,14 @@ import {
   Schema,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL } from "@/resources";
-import { Hero, IntroSection, ExpertiseSection, AboutMeSection, CareerSection, ScrollRevealCTA, LetsTalkSection, ScrollReveal } from "@/components";
+import { Hero } from "@/components/Hero";
+import { IntroSection } from "@/components/IntroSection";
+import ExpertiseSection from "@/components/ExpertiseSection";
+import { AboutMeSection } from "@/components/AboutMeSection";
+import { CareerSection } from "@/components/CareerSection";
+import { ScrollRevealCTA } from "@/components/ScrollRevealCTA";
+import { LetsTalkSection } from "@/components/LetsTalkSection";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {

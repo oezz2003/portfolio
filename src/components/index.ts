@@ -27,3 +27,5 @@ export { ScrollRevealCTA } from "@/components/ScrollRevealCTA";
 export { LetsTalkSection } from "@/components/LetsTalkSection";
 export { ScrollReveal } from "@/components/ScrollReveal";
 export { TransitionProvider } from "@/components/PageTransition";
+export { default as NotFound } from "@/components/NotFound";
+

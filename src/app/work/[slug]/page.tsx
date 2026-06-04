@@ -17,7 +17,8 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash, CustomMDX } from "@/components";
+import { ScrollToHash } from "@/components/ScrollToHash";
+import { CustomMDX } from "@/components/mdx";
 import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
 

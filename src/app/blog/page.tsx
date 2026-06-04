@@ -1,5 +1,5 @@
 import { Column, Heading, Schema } from "@once-ui-system/core";
-import { Mailchimp } from "@/components";
+import { Mailchimp } from "@/components/Mailchimp";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, person, newsletter } from "@/resources";
 import type { Metadata } from 'next';

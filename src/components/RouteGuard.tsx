@@ -3,8 +3,19 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { routes, protectedRoutes } from "@/resources";
-import { Flex, Spinner, Button, Heading, Column, PasswordInput } from "@once-ui-system/core";
-import NotFound from "@/app/not-found";
+import { Flex, Spinner, Button, Heading, Column, PasswordInput, Text } from "@once-ui-system/core";
+
+const LocalNotFound = () => (
+  <Column as="section" fill center paddingBottom="160">
+    <Text marginBottom="s" variant="display-strong-xl">
+      404
+    </Text>
+    <Heading marginBottom="l" variant="display-default-xs">
+      Page Not Found
+    </Heading>
+    <Text onBackground="neutral-weak">The page you are looking for does not exist.</Text>
+  </Column>
+);
 
 interface RouteGuardProps {
   children: React.ReactNode;
@@ -85,7 +96,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   }
 
   if (!isRouteEnabled) {
-    return <NotFound />;
+    return <LocalNotFound />;
   }
 
   if (isPasswordRequired && !isAuthenticated) {
