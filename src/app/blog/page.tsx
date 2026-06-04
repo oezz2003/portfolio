@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Blog() {
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <Column maxWidth="m" paddingX="l" paddingTop="160" paddingBottom="l" fillWidth>
       <Schema
         as="blogPosting"
         baseURL={baseURL}

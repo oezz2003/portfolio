@@ -7,7 +7,7 @@ export function RecentActivity() {
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case 'in progress':
-        return 'bg-blue-100 text-blue-800 border-blue-200';
+        return 'bg-white/10 text-white border-white/20';
       case 'learning':
         return 'bg-purple-100 text-purple-800 border-purple-200';
       case 'active':

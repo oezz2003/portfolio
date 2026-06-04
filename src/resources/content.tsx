@@ -5,11 +5,11 @@ const person: Person = {
   firstName: "Ezzaldeen",
   lastName: "Osama",
   name: `Ezzaldeen Osama`,
-  role: "Software Architect | Technical Lead",
+  role: "Tech Lead | Senior Full Stack Engineer",
   avatar: "/images/avatar.jpg",
   email: "oezz8459@gmail.com",
   phone: "+201040378725", // WhatsApp number
-  location: "Africa/Cairo", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "10th of Ramadan City, Egypt",
   languages: ["Arabic", "English"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -206,17 +206,13 @@ const about: About = {
   calendar: {
     display: true,
     link: "https://wa.me/201040378725?text=Hi%20Ezzaldeen%2C%20I'm%20interested%20in%20your%20services.",
-
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Visionary Software Architect and Technical Lead with 4+ years of experience in designing and implementing high-availability, distributed systems. 
-        Expertise in Microservices architecture, cloud-native solutions, and modern data modeling using Prisma and Drizzle. 
-        Proven track record of leading technical teams through complex digital transformations, including ERP systems and AI-integrated educational platforms. 
-        Combines a deep background in Engineering fundamentals with a Business Administration perspective to architect solutions that maximize ROI and operational scalability.
+        Product-minded Senior Full Stack Engineer and Tech Lead with a proven track record of architecting scalable SaaS solutions and leading startup technical directions. Combines deep expertise in the modern React ecosystem (Next.js, TypeScript) and backend infrastructure with a strong foundation in UI/UX design, media, and branding. Co-founder of SIRAD and Tech Lead at FALY, successfully bridging the gap between high-performance engineering, aesthetic design, and strategic business objectives. Adept at leveraging AI-driven workflows to accelerate development from MVP to full-scale production.
       </>
     ),
   },
@@ -225,46 +221,55 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "ZAK Solutions",
+        company: "FALY",
+        timeframe: "April 2025 – Present",
+        role: "Tech Lead & Senior Full Stack Engineer",
+        achievements: [
+          <>
+            Spearhead the technical direction and full-cycle development for the startup's core digital products. Manage cloud infrastructure and lead architectural decisions to ensure scalability.
+          </>,
+          <>
+            System Architecture & Development: Architected and deployed complex platforms including MCQmed (an AI-powered medical question bank), Easy Education (a gamified LMS), and Easy Food (an online ordering platform).
+          </>,
+          <>
+            Enterprise Solutions: Developed Yassin Glass ERP, a custom Enterprise Resource Planning system managing operational workflows, leveraging robust Next.js Server Actions.
+          </>,
+          <>
+            Infrastructure Management: Set up and maintained VPS infrastructures utilizing Coolify and Docker containers to ensure high availability and reliable deployment pipelines.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "SIRAD",
         timeframe: "Dec 2025 – Present",
-        role: "Lead Software Architect & Tech Lead",
+        role: "Co-Founder",
         achievements: [
           <>
-            Architected a modular ERP ecosystem for industrial glass installation, designing a scalable schema for inventory, accounting, and logistics that supports multi-tenant operations.
+            Co-lead the strategic, technical, and creative direction of the company, ensuring product-market fit.
           </>,
           <>
-            Engineered the backend architecture for an AI-enabled medical MCQ platform, integrating AI-driven explanation engines and real-time performance analytics.
+            Oversee media, digital branding, and UI/UX design, ensuring a cohesive and engaging visual identity across all platforms.
           </>,
           <>
-            Established internal "Clean Architecture" standards, reducing technical debt and improving developer onboarding efficiency by 25%.
+            Align technical feasibility with business goals, utilizing a multidisciplinary approach to drive the startup's growth and product development.
           </>,
         ],
         images: [],
       },
       {
         company: "Freelance",
-        timeframe: "Jan 2022 – Present",
-        role: "Senior Full Stack Engineer",
+        timeframe: "Jan 2022 – April 2025",
+        role: "Freelance Full Stack & Product Engineer",
         achievements: [
           <>
-            Designed and deployed a Scalable LMS Architecture for 500+ concurrent users, implementing optimized SQL patterns that improved data throughput by 20%.
+            Delivered end-to-end software solutions for diverse clients, seamlessly integrating backend robust functionality with intuitive UI/UX design.
           </>,
           <>
-            Architected high-traffic POS systems and "Smart Menu" solutions for the hospitality sector, ensuring 99.9% SEO visibility and a 30% increase in conversion rates.
+            Engineered a comprehensive educational platform, optimizing database queries to improve system latency by 20%.
           </>,
           <>
-            Implemented AWS S3-based distributed storage pipelines for high-volume media (e.g., Eagle Divers), ensuring global low-latency access.
-          </>,
-        ],
-        images: [],
-      },
-      {
-        company: "Freelance",
-        timeframe: "2020 – 2022",
-        role: "UI/UX & Graphic Designer",
-        achievements: [
-          <>
-            Developed comprehensive design systems and brand identities, ensuring visual consistency across multi-platform digital products.
+            Designed and deployed multiple high-converting custom web solutions and CMS platforms, leveraging SEO optimization and responsive design principles.
           </>,
         ],
         images: [],
@@ -276,59 +281,73 @@ const about: About = {
     title: "Technical Expertise",
     skills: [
       {
-        title: "System Architecture",
+        title: "Core Engineering",
         description: (
-          <>Expertise in designing high-availability, distributed systems and cloud-native solutions.</>
+          <>Next.js, Nest.js, React.js, TypeScript, Node.js, Tailwind CSS.</>
         ),
         tags: [
-          { name: "Microservices", icon: "" },
-          { name: "Event-Driven Architecture", icon: "" },
-          { name: "Serverless", icon: "" },
-          { name: "RESTful & GraphQL APIs", icon: "" },
-          { name: "Clean Architecture", icon: "" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Nest.js", icon: "" },
+          { name: "React.js", icon: "react" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "Node.js", icon: "nodejs" },
+          { name: "Tailwind CSS", icon: "tailwind" },
         ],
         images: [],
       },
       {
-        title: "Data Engineering",
+        title: "Databases & ORMs",
         description: (
-          <>High-performance data modeling and caching strategies for scalable applications.</>
+          <>PostgreSQL, Prisma, Drizzle ORM, MongoDB.</>
         ),
         tags: [
           { name: "PostgreSQL", icon: "postgresql" },
-          { name: "Redis", icon: "" },
-          { name: "Supabase", icon: "" },
           { name: "Prisma", icon: "" },
           { name: "Drizzle ORM", icon: "" },
-          { name: "Firebase", icon: "firebase" },
+          { name: "MongoDB", icon: "mongodb" },
         ],
         images: [],
       },
       {
-        title: "Frontend Architecture",
+        title: "Infrastructure & AI",
         description: (
-          <>Next.js specialist focusing on performance optimization and design systems.</>
+          <>VPS Management, Coolify, Docker, Ubuntu/Linux, AI Agent Workflows, Cursor, GitHub Copilot.</>
         ),
         tags: [
-          { name: "Next.js (App Router)", icon: "nextjs" },
-          { name: "React", icon: "react" },
-          { name: "TypeScript", icon: "typescript" },
-          { name: "Tailwind CSS", icon: "tailwind" },
-          { name: "Performance Optimization (SSR/ISR)", icon: "" },
-        ],
-        images: [],
-      },
-      {
-        title: "Cloud & Infrastructure",
-        description: (
-          <>Cloud-native deployment and infrastructure orchestration.</>
-        ),
-        tags: [
-          { name: "AWS (S3, Cloudfront)", icon: "aws" },
+          { name: "VPS Management", icon: "" },
+          { name: "Coolify", icon: "" },
           { name: "Docker", icon: "docker" },
-          { name: "CI/CD Pipeline Design", icon: "" },
-          { name: "VPS Orchestration", icon: "" },
-          { name: "Linux Customization", icon: "" },
+          { name: "Ubuntu/Linux", icon: "" },
+          { name: "AI Agent Workflows", icon: "" },
+          { name: "Cursor & Copilot", icon: "" },
+        ],
+        images: [],
+      },
+      {
+        title: "Design & Media",
+        description: (
+          <>UI/UX Design, Figma, Canva, Adobe XD, Visual Hierarchy, Branding, Product Design.</>
+        ),
+        tags: [
+          { name: "UI/UX Design", icon: "" },
+          { name: "Figma", icon: "" },
+          { name: "Canva", icon: "" },
+          { name: "Adobe XD", icon: "" },
+          { name: "Visual Hierarchy", icon: "" },
+          { name: "Branding & Product Design", icon: "" },
+        ],
+        images: [],
+      },
+      {
+        title: "System Design",
+        description: (
+          <>Database Schema Design, SRS Documentation, RESTful APIs, Next.js Server Actions.</>
+        ),
+        tags: [
+          { name: "Database Schema Design", icon: "" },
+          { name: "SRS Documentation", icon: "" },
+          { name: "RESTful APIs", icon: "" },
+          { name: "Next.js Server Actions", icon: "nextjs" },
         ],
         images: [],
       },
@@ -339,7 +358,7 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "Higher Technological Institute (HTI), Egypt",
+        name: "HTI, Egypt",
         description: <>Bachelor of Business Administration (BBA) | Expected 2029. Focus: Product Management, Business Analytics, and Strategic Branding.</>,
       },
       {

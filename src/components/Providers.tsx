@@ -18,6 +18,7 @@ import type {
   SolidType,
   SurfaceStyle,
   TransitionStyle,
+  Theme,
 } from "@once-ui-system/core";
 import { style, dataStyle } from "../resources";
 import { iconLibrary } from "../resources/icons";
@@ -26,6 +27,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <LayoutProvider>
       <ThemeProvider
+        theme={style.theme as Theme}
         brand={style.brand as Schemes}
         accent={style.accent as Schemes}
         neutral={style.neutral as NeutralColor}

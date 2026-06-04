@@ -94,7 +94,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
     <Row fillWidth>
       <Row maxWidth={12} m={{ hide: true }} />
       <Row fillWidth horizontal="center">
-        <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
+        <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="160">
           <Schema
             as="blogPosting"
             baseURL={baseURL}

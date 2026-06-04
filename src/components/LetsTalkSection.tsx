@@ -1,0 +1,152 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { person, social } from "@/resources/content";
+
+export const LetsTalkSection: React.FC = () => {
+  // Find LinkedIn link from social config
+  const linkedinSocial = social.find((s) => s.name.toLowerCase() === "linkedin");
+  const linkedinUrl = linkedinSocial ? linkedinSocial.link : "https://linkedin.com";
+  // Format LinkedIn display
+  const linkedinDisplay = linkedinUrl.replace("https://www.", "").replace("https://", "");
+
+  return (
+    <section className="relative w-full bg-black py-24 md:py-32 px-6 md:px-12 lg:px-24 xl:px-32 border-t border-neutral-900 z-[2]">
+      <div className="relative w-full max-w-[1280px] mx-auto flex flex-col gap-16 md:gap-24">
+        
+        {/* Top Section: Tagline & Headlines */}
+        <div className="flex flex-col gap-6">
+          <span className="font-mono text-xs md:text-sm tracking-widest text-neutral-500 uppercase">
+            // LET'S TALK
+          </span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-400 mt-2 leading-tight">
+            Let's build something <span className="text-white">that matters.</span>
+          </h2>
+          
+          <div className="flex flex-col gap-6 text-neutral-400 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed mt-4">
+            <p>
+              I'm open to Technical Leadership, System Architecture, and SaaS/ERP engineering conversations — particularly at organizations scaling digital platforms or seeking high-performance execution.
+            </p>
+            <p>
+              I'm also available for advisory engagements, product collaborations, and speaking on developer workflows, VPS/Docker cloud setups, and AI-driven development.
+            </p>
+            <p className="text-white font-medium">
+              If you're building something where engineering needs to perform — let's talk.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Section: Photo & Contact Channels */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          
+          {/* Photo Column */}
+          <div className="lg:col-span-5 w-full flex justify-center">
+            <div className="relative w-full max-w-[400px] aspect-[4/5] overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 group">
+              <Image
+                src="/images/profile.jpg"
+                alt="Ezzaldeen Osama"
+                fill
+                sizes="(max-width: 1024px) 100vw, 35vw"
+                className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 group-hover:scale-100"
+              />
+            </div>
+          </div>
+
+          {/* Contact Details Column */}
+          <div className="lg:col-span-7 flex flex-col gap-8">
+            <div className="flex flex-col">
+              <span className="font-mono text-[10px] md:text-xs tracking-wider text-neutral-500 uppercase mb-4">
+                DIRECT CHANNELS
+              </span>
+              
+              <div className="flex flex-col border-t border-neutral-900">
+                {/* Phone Channel */}
+                <a 
+                  href={`tel:${person.phone}`}
+                  className="flex items-center gap-4 py-5 border-b border-neutral-900 group hover:bg-neutral-950/20 transition-all duration-300 px-2"
+                >
+                  <div className="w-10 h-10 border border-neutral-800 flex items-center justify-center rounded bg-neutral-950/50 group-hover:border-neutral-700 transition-colors">
+                    <svg className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-mono text-[9px] md:text-[10px] tracking-wider text-neutral-500 uppercase">
+                      PHONE / WHATSAPP
+                    </span>
+                    <span className="text-sm md:text-base font-medium text-neutral-200 group-hover:text-white transition-colors mt-0.5">
+                      {person.phone}
+                    </span>
+                  </div>
+                </a>
+
+                {/* Email Channel */}
+                <a 
+                  href={`mailto:${person.email}`}
+                  className="flex items-center gap-4 py-5 border-b border-neutral-900 group hover:bg-neutral-950/20 transition-all duration-300 px-2"
+                >
+                  <div className="w-10 h-10 border border-neutral-800 flex items-center justify-center rounded bg-neutral-950/50 group-hover:border-neutral-700 transition-colors">
+                    <svg className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-mono text-[9px] md:text-[10px] tracking-wider text-neutral-500 uppercase">
+                      EMAIL
+                    </span>
+                    <span className="text-sm md:text-base font-medium text-neutral-200 group-hover:text-white transition-colors mt-0.5">
+                      {person.email}
+                    </span>
+                  </div>
+                </a>
+
+                {/* LinkedIn Channel */}
+                <a 
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 py-5 border-b border-neutral-900 group hover:bg-neutral-950/20 transition-all duration-300 px-2"
+                >
+                  <div className="w-10 h-10 border border-neutral-800 flex items-center justify-center rounded bg-neutral-950/50 group-hover:border-neutral-700 transition-colors">
+                    <svg className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-mono text-[9px] md:text-[10px] tracking-wider text-neutral-500 uppercase">
+                      LINKEDIN
+                    </span>
+                    <span className="text-sm md:text-base font-medium text-neutral-200 group-hover:text-white transition-colors mt-0.5">
+                      {linkedinDisplay}
+                    </span>
+                  </div>
+                </a>
+
+                {/* Location Channel */}
+                <div className="flex items-center gap-4 py-5 border-b border-neutral-900 group px-2">
+                  <div className="w-10 h-10 border border-neutral-800 flex items-center justify-center rounded bg-neutral-950/50">
+                    <svg className="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-mono text-[9px] md:text-[10px] tracking-wider text-neutral-500 uppercase">
+                      LOCATION
+                    </span>
+                    <span className="text-sm md:text-base font-medium text-neutral-300 mt-0.5">
+                      Cairo, Egypt
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};

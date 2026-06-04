@@ -1,5 +1,12 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.position {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
 .mask {
     pointer-events: none;
     backdrop-filter: blur(0.5rem);

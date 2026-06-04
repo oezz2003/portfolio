@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, Text, Button } from "@once-ui-system/core";
 
 import { routes, display, person, about, contact, work } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -61,7 +61,7 @@ export const Header = () => {
       <Row
         fitHeight
         className={styles.position}
-        position="sticky"
+        position="fixed"
         as="header"
         zIndex={9}
         fillWidth
@@ -72,28 +72,118 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+        {/* Desktop Header */}
+        <Row
+          fillWidth
+          vertical="center"
+          horizontal="between"
+          padding="12"
+          radius="full"
+          background="neutral-alpha-medium"
+          border="neutral-alpha-weak"
+          shadow="l"
+          s={{ hide: true }}
+          style={{
+            backdropFilter: "blur(20px)",
+            maxWidth: "960px",
+            margin: "0 auto",
+            backgroundColor: "rgba(10, 10, 10, 0.75)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
+          {/* Left: Name/Branding */}
+          <Row vertical="center" gap="12" paddingLeft="12">
+            <Text weight="strong" variant="body-default-m" style={{ letterSpacing: "-0.02em", color: "#ffffff" }}>
+              Ezzaldeen Osama.
+            </Text>
+          </Row>
+
+          {/* Center: Nav links */}
+          <Row gap="4" vertical="center" textVariant="body-default-s">
+            {routes["/"] && (
+              <ToggleButton
+                prefixIcon="home"
+                href="/"
+                label="Home"
+                selected={pathname === "/"}
+              />
+            )}
+            {routes["/about"] && (
+              <ToggleButton
+                prefixIcon="person"
+                href="/about"
+                label={about.label}
+                selected={pathname === "/about"}
+              />
+            )}
+            {routes["/work"] && (
+              <ToggleButton
+                prefixIcon="grid"
+                href="/work"
+                label={work.label}
+                selected={pathname.startsWith("/work")}
+              />
+            )}
+            {routes["/contact"] && (
+              <ToggleButton
+                prefixIcon="email"
+                href="/contact"
+                label={contact.label}
+                selected={pathname.startsWith("/contact")}
+              />
+            )}
+          </Row>
+
+          {/* Right: CTA & Theme Toggle */}
+          <Row vertical="center" gap="12" paddingRight="8">
+            {display.themeSwitcher && <ThemeToggle />}
+            <Button
+              href="/contact"
+              variant="primary"
+              size="s"
+              weight="strong"
+              style={{
+                borderRadius: "9999px",
+                background: "#ffffff",
+                color: "#000000",
+              }}
+            >
+              LET'S TALK
+            </Button>
+          </Row>
         </Row>
-        <Row fillWidth horizontal="center">
+
+        {/* Mobile Header */}
+        <Row
+          hide
+          s={{ hide: false }}
+          fillWidth
+          horizontal="center"
+        >
           <Row
             background="page"
             border="neutral-alpha-weak"
-            radius="m-4"
+            radius="full"
             shadow="l"
-            padding="4"
+            padding="8"
             horizontal="center"
             zIndex={1}
+            style={{
+              backgroundColor: "rgba(10, 10, 10, 0.8)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+            }}
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            <Row gap="8" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton size="l" prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              <Line background="neutral-alpha-medium" vert maxHeight="32" />
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
+                      size="l"
                       prefixIcon="person"
                       href="/about"
                       label={about.label}
@@ -102,6 +192,7 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
+                      size="l"
                       prefixIcon="person"
                       href="/about"
                       selected={pathname === "/about"}
@@ -113,6 +204,7 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
+                      size="l"
                       prefixIcon="grid"
                       href="/work"
                       label={work.label}
@@ -121,6 +213,7 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
+                      size="l"
                       prefixIcon="grid"
                       href="/work"
                       selected={pathname.startsWith("/work")}
@@ -132,6 +225,7 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
+                      size="l"
                       prefixIcon="email"
                       href="/contact"
                       label={contact.label}
@@ -140,6 +234,7 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
+                      size="l"
                       prefixIcon="email"
                       href="/contact"
                       selected={pathname.startsWith("/contact")}
@@ -149,26 +244,13 @@ export const Header = () => {
               )}
               {display.themeSwitcher && (
                 <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
+                  <Line background="neutral-alpha-medium" vert maxHeight="32" />
+                  <ThemeToggle size="l" />
                 </>
               )}
             </Row>
           </Row>
         </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
-          <Flex
-            paddingRight="12"
-            horizontal="end"
-            vertical="center"
-            textVariant="body-default-s"
-            gap="20"
-          >
-            <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
-            </Flex>
-          </Flex>
-        </Flex>
       </Row>
     </>
   );

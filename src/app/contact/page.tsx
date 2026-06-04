@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Contact() {
   return (
-    <Column maxWidth="m" paddingTop="24" horizontal="center">
+    <Column maxWidth="m" paddingX="l" paddingTop="160" paddingBottom="l" fillWidth horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}

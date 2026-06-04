@@ -12,9 +12,13 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { Footer, Header, RouteGuard, Providers, CustomCursor, TransitionProvider } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home, person, social } from "@/resources";
 import type { Metadata } from 'next';
+import { Geist } from "next/font/google";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -52,6 +56,7 @@ export default async function RootLayout({
       lang="en"
       fillWidth
       className={classNames(
+        "dark",
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
@@ -78,7 +83,7 @@ export default async function RootLayout({
               "telephone": person.phone,
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": person.location.split('/')[1]
+                "addressCountry": person.location.includes('/') ? person.location.split('/')[1] : person.location
               },
               "knowsAbout": [
                 "Full Stack Development",
@@ -99,7 +104,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
+                  const defaultTheme = 'dark';
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
@@ -120,18 +125,10 @@ export default async function RootLayout({
                     root.setAttribute('data-' + key, value);
                   });
                   
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
+                  // Force dark theme
+                  const resolvedTheme = 'dark';
                   root.setAttribute('data-theme', resolvedTheme);
+                  localStorage.setItem('data-theme', 'dark');
                   
                   // Apply any saved style overrides
                   const styleKeys = Object.keys(config);
@@ -160,56 +157,58 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
-          <RevealFx fill position="absolute">
-            <Background
-              mask={{
-                x: effects.mask.x,
-                y: effects.mask.y,
-                radius: effects.mask.radius,
-                cursor: effects.mask.cursor,
-              }}
-              gradient={{
-                display: effects.gradient.display,
-                opacity: effects.gradient.opacity as opacity,
-                x: effects.gradient.x,
-                y: effects.gradient.y,
-                width: effects.gradient.width,
-                height: effects.gradient.height,
-                tilt: effects.gradient.tilt,
-                colorStart: effects.gradient.colorStart,
-                colorEnd: effects.gradient.colorEnd,
-              }}
-              dots={{
-                display: effects.dots.display,
-                opacity: effects.dots.opacity as opacity,
-                size: effects.dots.size as SpacingToken,
-                color: effects.dots.color,
-              }}
-              grid={{
-                display: effects.grid.display,
-                opacity: effects.grid.opacity as opacity,
-                color: effects.grid.color,
-                width: effects.grid.width,
-                height: effects.grid.height,
-              }}
-              lines={{
-                display: effects.lines.display,
-                opacity: effects.lines.opacity as opacity,
-                size: effects.lines.size as SpacingToken,
-                thickness: effects.lines.thickness,
-                angle: effects.lines.angle,
-                color: effects.lines.color,
-              }}
-            />
-          </RevealFx>
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
-          <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
-            <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
+          <TransitionProvider>
+            <RevealFx fill position="absolute">
+              <Background
+                mask={{
+                  x: effects.mask.x,
+                  y: effects.mask.y,
+                  radius: effects.mask.radius,
+                  cursor: effects.mask.cursor,
+                }}
+                gradient={{
+                  display: effects.gradient.display,
+                  opacity: effects.gradient.opacity as opacity,
+                  x: effects.gradient.x,
+                  y: effects.gradient.y,
+                  width: effects.gradient.width,
+                  height: effects.gradient.height,
+                  tilt: effects.gradient.tilt,
+                  colorStart: effects.gradient.colorStart,
+                  colorEnd: effects.gradient.colorEnd,
+                }}
+                dots={{
+                  display: effects.dots.display,
+                  opacity: effects.dots.opacity as opacity,
+                  size: effects.dots.size as SpacingToken,
+                  color: effects.dots.color,
+                }}
+                grid={{
+                  display: effects.grid.display,
+                  opacity: effects.grid.opacity as opacity,
+                  color: effects.grid.color,
+                  width: effects.grid.width,
+                  height: effects.grid.height,
+                }}
+                lines={{
+                  display: effects.lines.display,
+                  opacity: effects.lines.opacity as opacity,
+                  size: effects.lines.size as SpacingToken,
+                  thickness: effects.lines.thickness,
+                  angle: effects.lines.angle,
+                  color: effects.lines.color,
+                }}
+              />
+            </RevealFx>
+            <Header />
+            <Flex zIndex={0} fillWidth padding="0" horizontal="center" flex={1}>
+              <Flex horizontal="center" fillWidth minHeight="0">
+                <RouteGuard>{children}</RouteGuard>
+              </Flex>
             </Flex>
-          </Flex>
-          <Footer />
+            <Footer />
+            <CustomCursor />
+          </TransitionProvider>
         </Column>
       </Providers>
     </Flex>
