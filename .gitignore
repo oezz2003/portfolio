@@ -1,36 +1,104 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+```
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+# Build artifacts
+dist/
+build/
+.next/
+out/
 
-# testing
-/coverage
+# Environment variables
+.env
+.env.local
+*.env.*
 
-# next.js
-/.next/
-/out/
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
 
-# production
-/build
+# Logs
+*.log
 
-# misc
+# Python (if applicable)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.coverage
+coverage/
+htmlcov/
+
+# Compiled and binary files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# System files
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Testing
+.nyc_output/
+coverage/
+junit.xml
+*.gcda
+*.gcno
 
-# local env files
-.env*.local
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
 
-# vercel
-.vercel
+# PyTest
+.pytest_cache/
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Bazel
+bazel-*/
+
+# Gradle
+.gradle/
+
+# Rust/Cargo
+target/
+
+# Julia
+julia-*/
+
+# Zig
+zig-cache/
+zig-out/
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+```
