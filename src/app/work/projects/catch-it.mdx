@@ -1,0 +1,63 @@
+---
+title: "Catch It"
+publishedAt: "2026-06-05"
+images:
+  - "/images/projects/catch-it/catch-it.jpg"
+  - "/images/projects/catch-it/1.jpg"
+  - "/images/projects/catch-it/2.jpg"
+summary: "A high-performance, real-time storefront e-commerce experience leveraging TanStack Start, React 19, and Drizzle ORM."
+role: "Lead Full-Stack Developer"
+techStack:
+  - "TanStack Start"
+  - "React 19"
+  - "TanStack Router"
+  - "TanStack Query"
+  - "Drizzle ORM"
+  - "PostgreSQL"
+  - "Tailwind CSS v4"
+---
+
+# Catch It (E-Commerce)
+
+A high-performance, next-generation B2C e-commerce platform built on a unified client-server architecture. 
+
+Designed for speed and responsive interactions, *Catch It* delivers instantaneous route transitions, optimistic shopping cart mechanics, and localized data synchronization to optimize customer shopping experiences.
+
+## Project Objective
+
+The goal was to build a modern storefront that matches the performance of static sites while supporting dynamic catalog updates, multi-currency cart calculations, and third-party authentication. 
+
+Special focus was given to optimizing state queries and reducing page loads using TanStack’s unified router and query engines.
+
+## Key Features
+
+- **Unified Client-Server Routing**: Integrated route tree prefetching and server-side data loading.
+- **Optimistic Cart Transactions**: Cart item mutations and adjustments resolve instantly on the client.
+- **Dynamic Catalog Engine**: Advanced search, multi-layered category sorting, and active filter pipelines.
+- **Google OAuth Integration**: Secure user sign-in and checkout flows.
+- **Admin Management Panel**: Dashboard for administrators to track order fulfillments, update stock logs, and modify products.
+- **Responsive Layout**: Fluid grids and adaptive panels designed for optimal mobile shopping.
+
+## Technologies Used
+
+- **Frontend & Router**: TanStack Start (Vite), TanStack React Router, React 19
+- **Data Fetching**: TanStack React Query v5
+- **Database & ORM**: Drizzle ORM, PostgreSQL
+- **Styling**: Tailwind CSS v4
+- **Icons & Visuals**: Lucide Icons, Recharts
+- **Authentication**: Google Auth / Stateless session tokens
+
+## Challenges & Solutions
+
+- **Challenge: Eliminating loading states and layout shifts during category browsing**  
+  **Solution:** Leveraged TanStack Router's preload features. By prefetching database queries when a user hovers over a category link, target pages are rendered instantly from cached query data, eliminating loading spinner screens.
+
+- **Challenge: Managing complex client-side cart states with server-side stock level checks**  
+  **Solution:** Configured TanStack Query mutations with optimistic UI triggers. When a customer modifies item quantity, the UI updates the totals immediately, verifies stock status in the background, and reconciles the cart state with the database.
+
+- **Challenge: Balancing strict type safety between server routes and client loaders**  
+  **Solution:** Utilized TanStack Router's auto-generated route trees (`routeTree.gen.ts`) combined with Drizzle schema types. This ensures that any changes to database fields automatically trigger compile-time errors in the frontend component props.
+
+## Project Highlights
+
+*Catch It* represents a modern approach to web development, demonstrating the potential of combining **TanStack Start**, **React 19**, and **Drizzle ORM** for e-commerce. The project highlights expertise in caching design, prefetch optimization, and building highly responsive, type-safe web applications.

@@ -1,0 +1,64 @@
+---
+title: "MedMCQ"
+publishedAt: "2026-05-18"
+images:
+  - "/images/projects/medmcq/medmcq.jpg"
+  - "/images/projects/medmcq/1.jpg"
+  - "/images/projects/medmcq/2.jpg"
+summary: "A Turborepo monorepo medical exam preparation platform with dual-app architecture."
+role: "Tech Lead & Senior Full-Stack Engineer"
+techStack:
+  - "Turborepo"
+  - "Next.js 15"
+  - "Drizzle ORM"
+  - "PostgreSQL"
+  - "NextAuth.js"
+  - "Recharts"
+  - "ExcelJS"
+---
+
+# MedMCQ
+
+A high-performance medical exam preparation engine built inside a monorepo. 
+
+Serving a large bank of practice questions, *MedMCQ* features a dual-app architecture: a high-availability quiz application for medical students, and a content administration dashboard for editors and contributors.
+
+## Project Objective
+
+The goal was to build a system capable of handling thousands of concurrent exam sessions while allowing editors to upload, tag, and verify content. 
+
+This required creating a shared codebase for packages, a bulk importer for Excel spreadsheets, and interactive performance charts for students.
+
+## Key Features
+
+- **Dual-Application Architecture**: Separate client applications for the student quiz engine and the administrator control panel.
+- **Turborepo Sharing**: Shared database layers (`@repo/db`), validation schemas (`@repo/validation`), and component libraries (`@repo/ui`).
+- **Excel Ingestion Pipeline**: Spreadsheet parsing tool allowing editors to import questions, answers, and explanations.
+- **Bilingual Exam Engine**: Support for dual English and Arabic medical terminology translation matrices.
+- **Performance Analytics**: Radar and bar charts tracking student performance across medical categories.
+- **Timed Exam Simulations**: Live exam client with browser focus tracking and automated auto-submit hooks.
+
+## Technologies Used
+
+- **Monorepo**: Turborepo
+- **Frameworks**: Next.js 15 (App Router), React 18
+- **Database & ORM**: Drizzle ORM, PostgreSQL
+- **Querying & Auth**: NextAuth.js, TanStack Query
+- **Spreadsheet Parsing**: ExcelJS
+- **Visual Analytics**: Recharts
+- **Styling**: Tailwind CSS v4, Lucide Icons
+
+## Challenges & Solutions
+
+- **Challenge: Bulk uploading large sheets of questions without overloading the server**  
+  **Solution:** Built a client-side ingestion pipeline using `ExcelJS` that splits data into chunks. Each row is validated on the client using Zod schemas before being sent in batches to the database.
+
+- **Challenge: Ensuring consistent branding across separate Next.js client applications**  
+  **Solution:** Extracted shared Tailwind v4 design tokens and layouts into an internal package (`@repo/ui`). Both client apps import from this shared package, maintaining styling consistency.
+
+- **Challenge: Rendering interactive charts on mobile screens**  
+  **Solution:** Configured responsive chart containers using Recharts, adapting the layout dynamically on smaller screens to ensure readability.
+
+## Project Highlights
+
+*MedMCQ* shows the benefits of using a monorepo architecture for complex web applications. By utilizing **Turborepo**, **Next.js**, and **Drizzle ORM**, the platform provides a unified structure for both the student quiz engine and the admin dashboard.

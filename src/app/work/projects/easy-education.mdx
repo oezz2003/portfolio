@@ -1,0 +1,63 @@
+---
+title: "Easy Education"
+publishedAt: "2026-04-11"
+images:
+  - "/images/projects/easy-education/easy-education.jpg"
+  - "/images/projects/easy-education/1.jpg"
+  - "/images/projects/easy-education/2.jpg"
+summary: "A gamified, multi-role Learning Management System built with Next.js 16 and Prisma."
+role: "Tech Lead & Senior Full-Stack Engineer"
+techStack:
+  - "Next.js 16"
+  - "React 19"
+  - "Prisma"
+  - "PostgreSQL"
+  - "NextAuth.js"
+  - "TanStack Query"
+  - "Framer Motion"
+---
+
+# Easy Education
+
+An all-in-one educational platform connecting students, teachers, and administrators. 
+
+*Easy Education* includes interactive portals, gamified progress tracking, a dynamic course builder, scheduling systems, and financial management panels to coordinate lesson scheduling and teacher payrolls.
+
+## Project Objective
+
+The goal was to replace disconnected communication tools, spreadsheets, and learning dashboards with a single system. 
+
+Special focus was placed on creating an automated scheduler that prevents booking conflicts, designing role-specific user interfaces, and building gamification features to keep students engaged.
+
+## Key Features
+
+- **Role-Based Portals**: Customized user spaces (Emerald green for students, Cobalt blue for teachers, Amber gold for admins).
+- **Gamified Achievements**: Streak calculations, experience points (XP) rewards, and visual milestone animations.
+- **Dynamic Course Builder**: Drag-and-drop syllabus organizer, lesson card builders, and quiz compilers.
+- **Conflict-Prevention Scheduler**: Automated booking engine checking teacher schedules and classroom availability.
+- **Teacher Payroll Integrations**: Real-time billing trackers mapping teacher hours directly to automated billing.
+- **Analytics Dashboards**: Interactive charts monitoring class attendance, lesson progression, and revenue.
+
+## Technologies Used
+
+- **Framework**: Next.js 16 (App Router), React 19
+- **Database**: Prisma ORM, PostgreSQL
+- **Data Querying**: TanStack React Query v5
+- **Security**: NextAuth.js
+- **Animations**: Framer Motion
+- **Styling & Components**: Tailwind CSS v4, Lucide React, Recharts
+
+## Challenges & Solutions
+
+- **Challenge: Preventing overlapping sessions for teachers and physical classrooms**  
+  **Solution:** Designed an validation check inside Prisma transaction blocks. When creating a session, the engine runs a check looking for overlapping datetime ranges on both the teacher and classroom IDs, blocking conflicting entries.
+
+- **Challenge: Real-time UI updates for student gamification states**  
+  **Solution:** Built a background queue evaluating streaks and XP rewards when lessons are completed. On completion, the UI receives the updated levels and triggers interactive congratulatory animations using Framer Motion.
+
+- **Challenge: Managing complex database relationships (User roles, lessons, courses, schedules, payroll)**  
+  **Solution:** Designed a normalized PostgreSQL schema with indexes on query targets like student IDs and schedule datetimes, maintaining query performance as database records grow.
+
+## Project Highlights
+
+*Easy Education* demonstrates the value of role-based portals and gamification. By uniting scheduling, payroll, and course management inside a unified **Next.js 16** architecture, the platform simplifies administrative workflows and improves the student experience.

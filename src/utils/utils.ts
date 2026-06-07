@@ -23,6 +23,7 @@ type Metadata = {
     challenge: string;
     solution: string;
   }>;
+  techStack?: string[];
 };
 
 import { notFound } from "next/navigation";
@@ -54,6 +55,7 @@ function readMDXFile(filePath: string) {
     link: data.link || "",
     role: data.role || "",
     challengesSolutions: data.challengesSolutions || [],
+    techStack: data.techStack || [],
   };
 
   return { metadata, content };

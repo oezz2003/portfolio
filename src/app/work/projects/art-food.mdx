@@ -1,0 +1,63 @@
+---
+title: "Art Food"
+publishedAt: "2026-05-21"
+images:
+  - "/images/projects/art-food/art-food.jpg"
+  - "/images/projects/art-food/1.jpg"
+  - "/images/projects/art-food/2.jpg"
+summary: "A content management dashboard and landing page for an international confectionery manufacturer."
+role: "Full-Stack Developer & UI/UX Designer"
+techStack:
+  - "Next.js 16"
+  - "React 19"
+  - "Supabase SSR"
+  - "PostgreSQL"
+  - "Tailwind CSS"
+  - "Framer Motion"
+  - "GSAP"
+  - "Tiptap Editor"
+---
+
+# Art Food
+
+An interactive content management system and storefront designed for a confectionery brand. 
+
+By combining a localized front-end presentation with a custom dashboard, *Art Food* allows marketing teams to edit product categories, manage news feeds, update sliders, and upload assets in multiple languages.
+
+## Project Objective
+
+The goal was to build a fast, localized website that represents a premium food brand. 
+
+This required creating a custom rich text editor, managing localization (English and Arabic), and implementing fluid animations without affecting page load performance.
+
+## Key Features
+
+- **Bilingual Content System**: Full support for English and Arabic layout directions (LTR and RTL) and language schemas.
+- **Custom Rich Text Editor**: Integrated editor using Tiptap for creating custom-styled blog posts.
+- **Supabase Asset Manager**: Organization system with folders, drag-and-drop uploads, and dynamic image compression.
+- **GSAP & Framer Motion Animations**: Smooth scrolling and visual transitions for product cards and banners.
+- **Dynamic Key-Value Settings**: Key-value pairs inside the database allowing admins to modify website contact details, social links, and SEO tags without code changes.
+
+## Technologies Used
+
+- **Frontend**: Next.js 16 (App Router), React 19
+- **Authentication & Backend**: Supabase Auth (SSR client wrapper)
+- **Database**: PostgreSQL (Supabase managed)
+- **Rich Text Editing**: Tiptap API
+- **Animations**: GSAP, Framer Motion
+- **Styling**: Tailwind CSS, PostCSS
+
+## Challenges & Solutions
+
+- **Challenge: Managing translation synchronization across bilingual layouts**  
+  **Solution:** Modeled database schemas with dual text columns (e.g., `title_en` and `title_ar`) and structured dynamic content zones inside JSONB columns, routing language contexts through Next.js localized routing variables.
+
+- **Challenge: Large media file uploads slowing page loads**  
+  **Solution:** Built a client-side media pipeline that runs files through Canvas-based compression before uploading to Supabase Storage. Uploaded media is registered in a database cache, enabling Next.js Image optimization to serve webp formats.
+
+- **Challenge: Layout shifts and stuttering animations with dynamic content**  
+  **Solution:** Used GSAP for animations while setting container heights in Next.js Server Components. This minimizes cumulative layout shift (CLS) and ensures smooth transitions on mobile devices.
+
+## Project Highlights
+
+*Art Food* combines interactive design with visual storytelling. The project demonstrates the benefits of using **Next.js 16**, **Supabase**, and custom animation tools like **GSAP** to create a premium, content-driven experience.

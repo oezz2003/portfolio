@@ -1,0 +1,65 @@
+---
+title: "Yassin Glass ERP"
+publishedAt: "2026-06-05"
+images:
+  - "/images/projects/yassin-glass-erp/yassin-glass-erp.jpg"
+  - "/images/projects/yassin-glass-erp/1.jpg"
+  - "/images/projects/yassin-glass-erp/2.jpg"
+summary: "A custom, high-performance Enterprise Resource Planning (ERP) platform designed for operational workflow, billing, and document automation."
+role: "Tech Lead & Senior Full-Stack Engineer"
+techStack:
+  - "Next.js 16"
+  - "React 19"
+  - "Prisma"
+  - "PostgreSQL"
+  - "AWS S3"
+  - "dnd-kit"
+  - "Recharts"
+  - "@react-pdf/renderer"
+---
+
+# Yassin Glass ERP
+
+A custom, high-performance **Enterprise Resource Planning (ERP)** platform tailored to digitize and manage the operational workflows of glass manufacturing and processing facilities. 
+
+By unifying order processing, inventory tracking, delivery scheduling, and customer relations, the application replaces fragmented systems with a clean, responsive interface optimized for both office operations and field dispatch staff.
+
+## Project Objective
+
+The goal was to replace traditional paperwork and disconnected databases with an integrated dashboard. The system coordinates the production line, inventory counts, and financial transaction histories. 
+
+Special emphasis was placed on designing **conflict-prevention scheduling algorithms**, creating **optimized layouts for mobile dispatchers**, and automating **high-fidelity PDF document generation** directly on the server.
+
+## Key Features
+
+- **Interactive Kanban Dispatch Board**: Dynamic scheduling interface for tracking orders across production phases.
+- **Automated Document Compiler**: High-fidelity, print-ready PDF generation for sales orders, customer receipts, and invoices.
+- **AWS S3 File Archival**: Secure, localized storage system for blueprints, engineering specs, and delivery proof images.
+- **Telemetry Analytics Dashboard**: Visual representations of monthly revenue, dispatch latency, and operator performance stats.
+- **Granular Role-Based Access Control (RBAC)**: Custom permissions separating admins, sales operators, and delivery drivers.
+- **Optimized Mobile layouts**: High-contrast, touch-optimized user interfaces for delivery drivers managing shipments in the field.
+
+## Technologies Used
+
+- **Frontend**: Next.js 16 (App Router), React 19
+- **Backend & API**: Next.js Server Actions, REST endpoints
+- **Database & ORM**: Prisma ORM, PostgreSQL
+- **Storage**: AWS S3 SDK
+- **Styling & Components**: Tailwind CSS v4, Lucide Icons, Recharts
+- **Interactive Layers**: dnd-kit (drag-and-drop workflow tracking)
+- **Document Generation**: @react-pdf/renderer
+
+## Challenges & Solutions
+
+- **Challenge: Real-time synchronization of order workflows without lagging UI states**  
+  **Solution:** Configured optimistic state transitions inside `dnd-kit` wrapper nodes. The UI updates the Kanban column instantly on the client, sends the update via Next.js Server Actions, and automatically rolls back to the previous state only if the database transaction fails.
+
+- **Challenge: Heavy server CPU loads during bulk printable PDF generation**  
+  **Solution:** Architected an asynchronous compilation pipeline using `@react-pdf/renderer` in a localized API route. Invoices are generated as a background worker stream and cached directly in AWS S3, permitting users to download files from CDN links instantly without rebuilding the PDF file on every click.
+
+- **Challenge: Poor cellular connection handling for delivery staff uploading shipment signatures**  
+  **Solution:** Implemented client-side image compression using HTML Canvas before invoking AWS S3 upload streams, reducing average file transfer sizes by 80% while retaining structural clarity.
+
+## Project Highlights
+
+*Yassin Glass ERP* bridges the gap between complex industrial workflows and modern full-stack web applications. By delivering dynamic dashboards, secure file archives, and custom PDF rendering, the platform simplifies manufacturing operations and ensures high operational efficiency.
