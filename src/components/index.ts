@@ -22,6 +22,7 @@ export { IntroSection } from "@/components/IntroSection";
 export { default as SideRays } from "@/components/SideRays";
 export { default as ExpertiseSection } from "@/components/ExpertiseSection";
 export { AboutMeSection } from "@/components/AboutMeSection";
+export { HobbiesSection } from "@/components/HobbiesSection";
 export { CareerSection } from "@/components/CareerSection";
 export { ScrollRevealCTA } from "@/components/ScrollRevealCTA";
 export { LetsTalkSection } from "@/components/LetsTalkSection";

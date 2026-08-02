@@ -1,4 +1,4 @@
-import { About, Blog,  Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Home, Newsletter, Person, Social, Work, HobbiesSectionConfig } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -398,4 +398,79 @@ const contact = {
   image: "/images/og/contact.jpg",
 };
 
-export { person, social, newsletter, home, about, blog, work, contact };
+const hobbies: HobbiesSectionConfig = {
+  display: true,
+  tag: "// DISCOVER MY HOBBIES",
+  title: "Interactive Presentations & Creative Lab.",
+  subtitle: "Strategic analyses brought to life through dynamic web engineering and sensory storytelling.",
+  description: (
+    <>
+      Beyond pure full-stack software development, I create interactive, animation-rich web presentations to explore business strategy, organizational dynamics, and sensory branding. Each project is engineered with live simulations, parallax timelines, and bespoke interactions.
+    </>
+  ),
+  projects: [
+    {
+      id: "marvel",
+      number: "01",
+      title: "Marvel: Sensory Hacking & Branding Mastery",
+      subtitle: "Multi-Sensory Audience Engagement & Cinematic Universe Strategy",
+      badge: "SENSORY HACKING & BRANDING",
+      description: (
+        <>
+          An immersive, cinematic presentation exploring how Marvel hacks audience senses—visual spectacle, sonic identity, emotional resonance, and serialized narrative loops—to build a multi-billion dollar cultural empire and global brand loyalty.
+        </>
+      ),
+      url: "https://marvelooo.vercel.app/",
+      tags: ["Brand Strategy", "Sensory Hacking", "Cinematic Motion", "Audio-Visual UX", "Next.js"],
+      images: [
+        {
+          src: "/images/projects/MARVEL.png",
+          alt: "Marvel Sensory Hacking & Cinematic Branding Mastery",
+        },
+      ],
+    },
+    {
+      id: "cartoon-network",
+      number: "02",
+      title: "Cartoon Network: Cultural & Era Dynamics",
+      subtitle: "Interactive Organizational Behavior & Creative Evolution Showcase",
+      badge: "ORGANIZATIONAL BEHAVIOR",
+      description: (
+        <>
+          A high-fidelity multimedia presentation analyzing Cartoon Network's leadership transitions, creative culture shifts, and commercial evolution across four distinct eras with interactive character carousels, conflict mapping, and culture diagnostics.
+        </>
+      ),
+      url: "https://cartoon-network-lac.vercel.app/",
+      tags: ["Organizational Dynamics", "Parallax Timelines", "Character Carousels", "Framer Motion", "Next.js"],
+      images: [
+        {
+          src: "/images/projects/CN.png",
+          alt: "Cartoon Network Cultural & Era Dynamics Showcase",
+        },
+      ],
+    },
+    {
+      id: "zara",
+      number: "03",
+      title: "Zara: Fast Fashion Agility",
+      subtitle: "Interactive 3-Pillars Simulation & Supply Chain Diagnostics",
+      badge: "FAST FASHION STRATEGY",
+      description: (
+        <>
+          An interactive, deep-dive business analysis exploring Zara's operational agility. Features custom real-time simulators for agile Design cycles, nearshore Sourcing, and automated Logistics hubs, coupled with risk diagnosis and strategic recommendations.
+        </>
+      ),
+      url: "https://climb-or-slide.vercel.app/",
+      tags: ["Supply Chain Analytics", "Interactive Simulators", "Framer Motion", "Tailwind CSS", "Next.js"],
+      images: [
+        {
+          src: "/images/projects/ZARA.png",
+          alt: "Zara Fast Fashion Agile Supply Chain Strategy",
+        },
+      ],
+    },
+  ],
+};
+
+export { person, social, newsletter, home, about, blog, work, contact, hobbies };
+

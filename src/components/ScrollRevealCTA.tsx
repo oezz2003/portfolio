@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
     title: "Yassin Glass ERP",
     summary: "A custom, high-performance Enterprise Resource Planning (ERP) platform designed for operational workflow, billing, and document automation.",
     role: "Tech Lead & Senior Full-Stack Engineer",
-    image: "/images/projects/yassin-glass-erp/yassin-glass-erp.jpg",
+    image: "/images/projects/yassin-glass-erp/yassinerp.png",
     techStack: ["Next.js 16", "React 19", "Prisma", "PostgreSQL", "dnd-kit", "Recharts", "@react-pdf/renderer"],
     link: ""
   },
@@ -30,26 +30,17 @@ const PROJECTS: Project[] = [
     title: "Catch It",
     summary: "A high-performance, real-time storefront e-commerce experience leveraging TanStack Start, React 19, and Drizzle ORM.",
     role: "Lead Full-Stack Developer",
-    image: "/images/projects/catch-it/catch-it.jpg",
+    image: "/images/projects/catch-it/catchit.png",
     techStack: ["TanStack Start", "React 19", "TanStack Router", "TanStack Query", "Drizzle ORM", "PostgreSQL", "Tailwind CSS v4"],
     link: ""
   },
   {
-    slug: "aknaz-crm",
-    title: "AKNAZ CRM",
-    summary: "An enterprise customer relationship management platform optimized for performance, pipelines, and visual clarity.",
-    role: "Full-Stack Developer & UI/UX Architect",
-    image: "/images/projects/aknaz-crm/aknaz-crm.jpg",
-    techStack: ["Next.js 16", "React 19", "Prisma", "PostgreSQL", "NextAuth.js", "Tailwind CSS v4", "shadcn/ui"],
-    link: ""
-  },
-  {
-    slug: "medmcq",
-    title: "MedMCQ",
-    summary: "A Turborepo monorepo medical exam preparation platform with dual-app architecture.",
-    role: "Tech Lead & Senior Full-Stack Engineer",
-    image: "/images/projects/medmcq/medmcq.jpg",
-    techStack: ["Turborepo", "Next.js 15", "Drizzle ORM", "PostgreSQL", "NextAuth.js", "Recharts", "ExcelJS"],
+    slug: "swifterp",
+    title: "SwiftERP",
+    summary: "A modern, multi-tenant Enterprise Resource Planning (ERP) platform featuring dynamic PostgreSQL schema provisioning, Slack-style tenant discovery, and 9 domain modules.",
+    role: "Tech Lead & Principal Full-Stack Architect",
+    image: "/images/projects/swifterp/swifterp1.png",
+    techStack: ["Next.js 16", "React 19", "NestJS", "Prisma", "PostgreSQL (Multi-Schema)", "Tailwind CSS v4", "Docker"],
     link: ""
   }
 ];
@@ -85,10 +76,9 @@ export const ScrollRevealCTA: React.FC = () => {
 
       // 2. Animate each project slide sequentially
       const ranges = [
-        { start: 0.18, end: 0.38 },
-        { start: 0.38, end: 0.58 },
-        { start: 0.58, end: 0.78 },
-        { start: 0.78, end: 0.98 }
+        { start: 0.18, end: 0.44 },
+        { start: 0.44, end: 0.70 },
+        { start: 0.70, end: 0.96 }
       ];
 
       ranges.forEach((range, i) => {
@@ -156,7 +146,7 @@ export const ScrollRevealCTA: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[450vh] bg-black z-[3]">
+    <div ref={containerRef} className="relative w-full h-[380vh] bg-black z-[3]">
       {/* Sticky viewport container */}
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
         
@@ -191,7 +181,7 @@ export const ScrollRevealCTA: React.FC = () => {
                     // SELECTED PORTFOLIO
                   </span>
                   <span className="font-mono text-[10px] text-white bg-white/10 border border-white/10 px-2 py-0.5 rounded">
-                    0{i + 1} / 04
+                    0{i + 1} / 0{PROJECTS.length}
                   </span>
                 </div>
                 <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">

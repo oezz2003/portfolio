@@ -7,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { IntroSection } from "@/components/IntroSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import { AboutMeSection } from "@/components/AboutMeSection";
+import { HobbiesSection } from "@/components/HobbiesSection";
 import { CareerSection } from "@/components/CareerSection";
 import { ScrollRevealCTA } from "@/components/ScrollRevealCTA";
 import { LetsTalkSection } from "@/components/LetsTalkSection";
@@ -66,6 +67,9 @@ export default function Home() {
       </ScrollReveal>
       <ScrollReveal>
         <AboutMeSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <HobbiesSection />
       </ScrollReveal>
       <ScrollReveal>
         <CareerSection />

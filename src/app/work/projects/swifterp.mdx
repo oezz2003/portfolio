@@ -1,0 +1,70 @@
+---
+title: "SwiftERP"
+publishedAt: "2026-06-20"
+images:
+  - "/images/projects/swifterp/swifterp1.png"
+  - "/images/projects/swifterp/swifterp2.png"
+summary: "A next-generation, multi-tenant Enterprise Resource Planning (ERP) platform with dynamic PostgreSQL schema provisioning and Slack-style tenant discovery."
+role: "Tech Lead & Principal Full-Stack Architect"
+techStack:
+  - "Next.js 16"
+  - "React 19"
+  - "NestJS"
+  - "Prisma ORM"
+  - "PostgreSQL (Multi-Schema)"
+  - "Tailwind CSS v4"
+  - "Argon2 / RLS"
+  - "Docker / Coolify"
+---
+
+# SwiftERP (Multi-Tenant Enterprise Platform)
+
+**SwiftERP** is an enterprise-grade, multi-tenant Cloud ERP system engineered to streamline complex business operations across finance, supply chain, inventory, field dispatch, human resources, and customer management.
+
+Built to replace rigid monolithic ERPs and fragmented point-solutions, SwiftERP delivers complete data isolation across organizations using **dynamic PostgreSQL schema provisioning**, instant **Slack-style tenant discovery**, and a high-performance **NestJS + Next.js 16** architecture.
+
+## Project Objective
+
+The goal was to design an enterprise ERP platform capable of scaling to hundreds of independent organizations with strict tenant isolation, rapid sub-second query latency, and modular subscription-driven capabilities.
+
+Key architectural priorities included:
+1. Eliminating cross-tenant data leak risks via dedicated schema-per-tenant isolation.
+2. Building an email-first, centralized authentication workflow where users effortlessly discover and switch across their authorized corporate workspaces.
+3. Enforcing granular module-level access control across 9 core business domains through global feature flag guards and Row-Level Security (RLS).
+
+## Core Architecture & Key Modules
+
+SwiftERP is architected around 9 comprehensive, high-cohesion business modules:
+
+- **Accounts & Financials**: General ledger, multi-currency charts of accounts, journal entries, tax calculations, and real-time balance sheet generators.
+- **Selling & Invoicing**: Quotation lifecycles, sales order pipelines, automated tax invoicing, credit limits, and receipt management.
+- **Buying & Procurement**: Supplier management, purchase requisitions, automated PO generation, and billing reconciliation.
+- **Stock & Warehouse Management**: Multi-warehouse tracking, serialized inventory items, automated reorder thresholds, and bin-level transfers.
+- **Projects & Milestones**: Gantt-style project tracking, resource allocation, task progress logging, and milestone billing.
+- **Tasks & Workflow Automation**: Kanban workflow boards, recurring task queues, and team assignment tracking.
+- **Field Operations & Dispatch**: Dispatch routing, driver geolocation logs, proof-of-delivery signature captures, and field receipt generation.
+- **HR & Payroll**: Employee directory, attendance logging, leave approval workflows, and automated payroll slip compilation.
+- **CRM & Pipelines**: Lead scoring, customer touchpoint timelines, deal stage tracking, and communication histories.
+
+## Technical Innovations & Security
+
+- **Dynamic Schema Provisioning**: Automated provisioning engine that clones baseline relational schemas into dedicated `tenant_<slug>` namespaces on the fly upon workspace registration.
+- **Slack-Style Workspace Discovery**: Email-first lookup endpoint querying centralized tenant mappings, providing seamless single-sign-on access across multiple client organizations.
+- **Argon2 & Constant-Time Security**: Hardened authentication layer utilizing constant-time hash evaluations to prevent timing attacks, paired with tenant-scoped JWT verification.
+- **Global Feature Flag Enforcement**: Global `@FeatureFlag` controller guards validating active subscription plans before dispatching API requests to specific domain services.
+- **Streaming Document Generation**: Server-side compilation pipeline producing high-fidelity, print-ready PDF invoices and reports cached via CDN storage.
+
+## Challenges & Architectural Solutions
+
+- **Challenge: Database Schema Cloning Collisions During Multi-Tenant Provisioning**  
+  **Solution:** Designed a fault-tolerant PL/pgSQL cloning sequence wrapped with per-table exception blocks to gracefully handle foreign key relationships and sequence rebinding between public and tenant-specific namespaces.
+
+- **Challenge: Preventing Cross-Tenant Data Contamination in Shared Worker Pools**  
+  **Solution:** Implemented dynamic Prisma middleware that injects `SET search_path` and tenant RLS filters into every database transaction context before query execution.
+
+- **Challenge: Subdomain Routing Complexity on Shared SSL Environments**  
+  **Solution:** Developed a header-based tenant resolution layer in the Next.js edge middleware, enabling smooth transitions between custom subdomains and unified domain discovery modes.
+
+## Project Highlights
+
+SwiftERP showcases the modern standard for cloud-native enterprise software. Combining **Next.js 16**, **NestJS**, **Prisma**, and **multi-tenant PostgreSQL**, the platform proves that enterprise-scale ERPs can be performant, visually refined, and secure.

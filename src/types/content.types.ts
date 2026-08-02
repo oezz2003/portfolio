@@ -340,9 +340,36 @@ export interface Blog extends BasePageConfig {}
  */
 export interface Contact extends BasePageConfig {}
 
-/**
- * Work/projects page configuration.
- * @description Configuration for the Work/Projects page, including metadata and navigation label.
- */
 export interface Work extends BasePageConfig {}
+
+/**
+ * Presentation Showcase / Hobbies Project item
+ */
+export interface PresentationProject {
+  id: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  description: React.ReactNode;
+  url: string;
+  tags: string[];
+  images: Array<{
+    src: string;
+    alt: string;
+  }>;
+}
+
+/**
+ * Hobbies / Creative Lab section configuration
+ */
+export interface HobbiesSectionConfig {
+  display: boolean;
+  tag: string;
+  title: string;
+  subtitle: string;
+  description?: React.ReactNode;
+  projects: PresentationProject[];
+}
+
 

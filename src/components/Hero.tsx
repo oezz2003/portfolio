@@ -7,6 +7,7 @@ import { person, social } from "@/resources";
 export const Hero = () => {
   // Find social links or use defaults matching Ezzaldeen's info
   const linkedin = social.find((s) => s.name.toLowerCase() === "linkedin")?.link || "https://linkedin.com";
+  const github = social.find((s) => s.name.toLowerCase() === "github")?.link || "https://github.com/oezz2003";
   const email = `mailto:${person.email}`;
   const phone = `tel:${person.phone}`;
 
@@ -97,6 +98,22 @@ export const Hero = () => {
             style={{ cursor: "pointer", letterSpacing: "0.15em" }}
           >
             LINKEDIN
+          </Text>
+        </a>
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-link"
+          style={{ textDecoration: "none" }}
+        >
+          <Text
+            variant="label-default-l"
+            weight="strong"
+            onBackground="neutral-weak"
+            style={{ cursor: "pointer", letterSpacing: "0.15em" }}
+          >
+            GITHUB
           </Text>
         </a>
         <a

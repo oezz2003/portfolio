@@ -127,9 +127,9 @@ export default function Contact() {
           </Heading>
           
           <Flex fillWidth gap="20" wrap horizontal="center">
-            {/* Facebook Card */}
+            {/* GitHub Card */}
             <SmartLink
-              href="https://www.facebook.com/ezzaldeen.osama2003"
+              href="https://github.com/oezz2003"
               style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
             >
               <Card
@@ -140,11 +140,11 @@ export default function Contact() {
                 className="hover:bg-neutral-alpha-medium transition-colors duration-200"
               >
                 <Row gap="16" vertical="center">
-                  <Icon name="facebook" size="l" />
+                  <Icon name="github" size="l" />
                   <Column>
-                    <Text variant="body-strong-l">Facebook</Text>
+                    <Text variant="body-strong-l">GitHub</Text>
                     <Text variant="body-default-s" onBackground="neutral-weak">
-                      Follow me on Facebook
+                      Explore my repositories
                     </Text>
                   </Column>
                 </Row>
@@ -175,6 +175,29 @@ export default function Contact() {
               </Card>
             </SmartLink>
 
+            {/* Facebook Card */}
+            <SmartLink
+              href="https://www.facebook.com/ezzaldeen.osama2003"
+              style={{ flex: 1, minWidth: '250px', maxWidth: '300px', textDecoration: 'none' }}
+            >
+              <Card
+                fillWidth
+                padding="24"
+                background="neutral-alpha-weak"
+                radius="l"
+                className="hover:bg-neutral-alpha-medium transition-colors duration-200"
+              >
+                <Row gap="16" vertical="center">
+                  <Icon name="facebook" size="l" />
+                  <Column>
+                    <Text variant="body-strong-l">Facebook</Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      Follow me on Facebook
+                    </Text>
+                  </Column>
+                </Row>
+              </Card>
+            </SmartLink>
           </Flex>
 
           {/* Location Card */}
