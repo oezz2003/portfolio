@@ -351,6 +351,22 @@ const about: About = {
         ],
         images: [],
       },
+      {
+        title: "Technical SEO/GEO & Web Performance",
+        description: (
+          <>Dynamic Metadata & Schema.org Structured Data, SSR/SSG Optimization (Next.js), Core Web Vitals, Google Search Console, Site Speed Optimization, Indexing & Crawlability, Site Architecture.</>
+        ),
+        tags: [
+          { name: "Dynamic Metadata & Schema.org", icon: "" },
+          { name: "SSR/SSG Optimization (Next.js)", icon: "nextjs" },
+          { name: "Core Web Vitals", icon: "" },
+          { name: "Google Search Console", icon: "" },
+          { name: "Site Speed Optimization", icon: "" },
+          { name: "Indexing & Crawlability", icon: "" },
+          { name: "Site Architecture", icon: "" },
+        ],
+        images: [],
+      },
     ],
   },
   studies: {
