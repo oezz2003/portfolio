@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export const AboutMeSection: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#ffffff] border-t border-b border-neutral-200 py-24 md:py-32 px-6 md:px-12 lg:px-24 xl:px-32 overflow-hidden flex justify-center z-[2]">
-      <div className="relative w-full max-w-[1280px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
+    <section className="relative w-full bg-[#ffffff] border-t border-b border-neutral-200 py-16 md:py-32 px-5 md:px-12 lg:px-24 xl:px-32 overflow-hidden flex justify-center z-[2]">
+      <div className="relative w-full max-w-[1280px] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-20 items-start">
         {/* Left Column: Profile Photo */}
         <div className="lg:col-span-5 w-full flex flex-col items-center">
           <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl border border-neutral-200 group">
@@ -15,6 +15,7 @@ export const AboutMeSection: React.FC = () => {
               alt="Ezzaldeen Osama Profile"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
+              quality={90}
               priority
               className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 group-hover:scale-100"
             />
@@ -26,13 +27,13 @@ export const AboutMeSection: React.FC = () => {
         </div>
 
         {/* Right Column: About Content */}
-        <div className="lg:col-span-7 flex flex-col gap-8">
+        <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
           {/* Header Tag */}
           <div className="flex flex-col gap-3">
             <span className="font-mono text-xs md:text-sm tracking-widest text-black/50 uppercase">
               // ABOUT ME
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
               Architecting robust engineering systems that power modern businesses.
             </h2>
           </div>

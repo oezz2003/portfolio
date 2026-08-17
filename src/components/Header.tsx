@@ -165,86 +165,62 @@ export const Header = () => {
             border="neutral-alpha-weak"
             radius="full"
             shadow="l"
-            padding="8"
+            padding="4"
             horizontal="center"
             zIndex={1}
             style={{
-              backgroundColor: "rgba(10, 10, 10, 0.8)",
+              backgroundColor: "rgba(10, 10, 10, 0.85)",
               backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.7)",
             }}
           >
-            <Row gap="8" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton size="l" prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton
+                  size="l"
+                  prefixIcon="home"
+                  href="/"
+                  selected={pathname === "/"}
+                  aria-label="Home"
+                  style={{ minWidth: "44px", minHeight: "44px" }}
+                />
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="32" />
+              <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      size="l"
-                      prefixIcon="person"
-                      href="/about"
-                      label={about.label}
-                      selected={pathname === "/about"}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      size="l"
-                      prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
-                    />
-                  </Row>
-                </>
+                <ToggleButton
+                  size="l"
+                  prefixIcon="person"
+                  href="/about"
+                  selected={pathname === "/about"}
+                  aria-label={about.label}
+                  style={{ minWidth: "44px", minHeight: "44px" }}
+                />
               )}
               {routes["/work"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      size="l"
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      size="l"
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
+                <ToggleButton
+                  size="l"
+                  prefixIcon="grid"
+                  href="/work"
+                  selected={pathname.startsWith("/work")}
+                  aria-label={work.label}
+                  style={{ minWidth: "44px", minHeight: "44px" }}
+                />
               )}
               {routes["/contact"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      size="l"
-                      prefixIcon="email"
-                      href="/contact"
-                      label={contact.label}
-                      selected={pathname.startsWith("/contact")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      size="l"
-                      prefixIcon="email"
-                      href="/contact"
-                      selected={pathname.startsWith("/contact")}
-                    />
-                  </Row>
-                </>
+                <ToggleButton
+                  size="l"
+                  prefixIcon="email"
+                  href="/contact"
+                  selected={pathname.startsWith("/contact")}
+                  aria-label={contact.label}
+                  style={{ minWidth: "44px", minHeight: "44px" }}
+                />
               )}
               {display.themeSwitcher && (
                 <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="32" />
+                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
                   <ThemeToggle size="l" />
                 </>
               )}

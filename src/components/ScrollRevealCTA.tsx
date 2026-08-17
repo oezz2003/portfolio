@@ -172,19 +172,19 @@ export const ScrollRevealCTA: React.FC = () => {
             </div>
 
             {/* Slide Content */}
-            <div className="project-content relative z-20 w-full max-w-[1280px] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-20 items-center text-left transition-transform duration-75 ease-out translate-y-10">
+            <div className="project-content relative z-20 w-full max-w-[1280px] grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 lg:gap-16 xl:gap-20 items-center text-left transition-transform duration-75 ease-out translate-y-10">
               
               {/* Left Column: Heading and Count */}
-              <div className="lg:col-span-5 flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
+              <div className="lg:col-span-5 flex flex-col gap-2 md:gap-4">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <span className="font-mono text-[10px] md:text-xs tracking-widest text-white/50 uppercase">
                     // SELECTED PORTFOLIO
                   </span>
                   <span className="font-mono text-[10px] text-white bg-white/10 border border-white/10 px-2 py-0.5 rounded">
                     0{i + 1} / 0{PROJECTS.length}
                   </span>
                 </div>
-                <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                <h3 className="text-2xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
                   {project.title}
                 </h3>
                 <span className="font-mono text-xs md:text-sm text-neutral-400 uppercase tracking-wider">
@@ -193,17 +193,17 @@ export const ScrollRevealCTA: React.FC = () => {
               </div>
 
               {/* Right Column: Narrative and details */}
-              <div className="lg:col-span-7 flex flex-col gap-6 lg:border-l lg:border-white/10 lg:pl-10">
-                <p className="text-neutral-300 text-base md:text-lg lg:text-xl leading-relaxed">
+              <div className="lg:col-span-7 flex flex-col gap-3 md:gap-6 lg:border-l lg:border-white/10 lg:pl-10">
+                <p className="text-neutral-300 text-sm md:text-lg lg:text-xl leading-relaxed line-clamp-4 md:line-clamp-none">
                   {project.summary}
                 </p>
 
                 {/* Tech Stack Badges */}
-                <div className="flex flex-wrap gap-2 pt-2">
+                <div className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2">
                   {project.techStack.map((tech) => (
                     <span 
                       key={tech}
-                      className="px-2.5 py-1 text-[11px] font-mono bg-white/5 border border-white/10 text-white/80 rounded"
+                      className="px-2 py-0.5 md:px-2.5 md:py-1 text-[10px] md:text-[11px] font-mono bg-white/5 border border-white/10 text-white/80 rounded"
                     >
                       {tech}
                     </span>
@@ -211,13 +211,13 @@ export const ScrollRevealCTA: React.FC = () => {
                 </div>
 
                 {/* Navigation links */}
-                <div className="flex gap-6 items-center pt-4 border-t border-white/10">
+                <div className="flex gap-6 items-center pt-3 md:pt-4 border-t border-white/10">
                   <Link 
                     href={`/work/${project.slug}`}
-                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-neutral-300 transition-colors group"
+                    className="flex items-center gap-2 text-xs md:text-sm font-semibold text-white hover:text-neutral-300 transition-colors group"
                   >
                     Read Case Study
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
 
                   {project.link && (
@@ -225,10 +225,10 @@ export const ScrollRevealCTA: React.FC = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm font-semibold text-neutral-400 hover:text-white transition-colors group"
+                      className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-neutral-400 hover:text-white transition-colors group"
                     >
                       Live Site
-                      <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                      <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
                     </a>
                   )}
                 </div>
@@ -241,36 +241,36 @@ export const ScrollRevealCTA: React.FC = () => {
         {/* Overlay: White Panel (Curtain) */}
         <div 
           ref={curtainRef}
-          className="absolute inset-0 bg-white text-black z-30 flex flex-col justify-between p-8 md:p-16 lg:p-24 transition-transform duration-75 ease-out origin-top"
+          className="absolute inset-0 bg-white text-black z-30 flex flex-col justify-between p-5 md:p-16 lg:p-24 transition-transform duration-75 ease-out origin-top overflow-y-auto md:overflow-hidden"
         >
           {/* Top segment: Title */}
-          <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-6 md:gap-8">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-tight max-w-5xl">
+          <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-4 md:gap-8">
+            <h2 className="text-xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-tight max-w-5xl">
               From architecture to deployment — because true engineering leaders still build.
             </h2>
           </div>
 
           {/* Middle/Bottom Segment: Narrative details */}
-          <div className="w-full max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-end mt-12 md:mt-0">
-            <div className="md:col-span-7 flex flex-col gap-6 text-black/80 text-base md:text-lg lg:text-xl leading-relaxed">
+          <div className="w-full max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-12 lg:gap-16 items-end mt-4 md:mt-0">
+            <div className="md:col-span-7 flex flex-col gap-4 text-black/80 text-xs md:text-lg lg:text-xl leading-relaxed">
               <p>
                 Most Tech Leads transition purely into management. I don’t. These are enterprise-grade systems and SaaS platforms taken from initial MVP to live production — engineered at hyper-speed using Cursor, GitHub Copilot, and Google Antigravity AI agents. No bottlenecks. No delegation lag. No waiting.
               </p>
             </div>
             
-            <div className="md:col-span-5 flex flex-col gap-6 border-l border-black/10 pl-6 md:pl-8">
-              <p className="text-black text-base md:text-lg font-medium leading-relaxed">
+            <div className="md:col-span-5 flex flex-col gap-4 border-l-0 md:border-l border-black/10 pl-0 md:pl-8">
+              <p className="text-black text-xs md:text-lg font-medium leading-relaxed">
                 This is what it looks like when product strategy, system architecture, and AI-accelerated execution live in the same person.
               </p>
             </div>
           </div>
 
           {/* Footer segment: Scroll Indicator */}
-          <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center border-t border-black/10 pt-8 mt-12 md:mt-0">
-            <span className="font-mono text-[10px] md:text-xs tracking-wider text-black/40 uppercase">
+          <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center border-t border-black/10 pt-4 md:pt-8 mt-4 md:mt-0">
+            <span className="font-mono text-[9px] md:text-xs tracking-wider text-black/40 uppercase">
               SCROLL TO EXPLORE — SELECTED PORTFOLIO ↓
             </span>
-            <div className="flex gap-2">
+            <div className="flex gap-1.5 md:gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-black/20" />
               <span className="w-1.5 h-1.5 rounded-full bg-black/20" />
               <span className="w-1.5 h-1.5 rounded-full bg-black" />

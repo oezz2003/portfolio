@@ -43,6 +43,8 @@ export const Hero = () => {
           alt="Ezzaldeen Osama portrait"
           fill
           priority
+          sizes="(max-width: 768px) 250vw, (max-width: 1200px) 150vw, 100vw"
+          quality={90}
           style={{
             objectFit: "cover",
             objectPosition: "center",
@@ -154,6 +156,7 @@ export const Hero = () => {
         horizontal="center"
         onClick={handleScrollDown}
         style={{ cursor: "pointer" }}
+        className="hero-bounce-container"
       >
         <Flex
           className="hero-bounce"

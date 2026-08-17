@@ -16,6 +16,22 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
   const [scrollYOffset, setScrollYOffset] = useState<number>(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect touch-only pointer and screen size
+    if (typeof window !== "undefined") {
+      setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window);
+      setIsMobile(window.innerWidth < 768);
+
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -48,7 +64,7 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (isTouchDevice || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -63,10 +79,14 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
 
   const currentMainImage = project.images[0];
 
+  // Dynamic sticky top offset based on device width
+  const stickyTop = isMobile ? `${60 + index * 16}px` : `${80 + index * 28}px`;
+  const marginBottom = isMobile ? `${(total - index - 1) * 24}px` : `${(total - index - 1) * 36}px`;
+
   return (
     <div
       ref={cardRef}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => !isTouchDevice && setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
         setMousePos({ x: 0, y: 0 });
@@ -74,33 +94,35 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
       onMouseMove={handleMouseMove}
       className="sticky w-full transition-all duration-300 ease-out"
       style={{
-        top: `${80 + index * 28}px`,
+        top: stickyTop,
         zIndex: index + 1,
-        marginBottom: `${(total - index - 1) * 36}px`,
+        marginBottom: marginBottom,
       }}
     >
       <article
-        className="group relative rounded-3xl border border-white/10 bg-[#080808]/95 backdrop-blur-2xl hover:border-white/25 transition-all duration-500 overflow-hidden p-6 md:p-10 lg:p-12 flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
+        className="group relative rounded-2xl md:rounded-3xl border border-white/10 bg-[#080808]/95 backdrop-blur-2xl hover:border-white/25 transition-all duration-500 overflow-hidden p-5 md:p-10 lg:p-12 flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-12 items-center shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
         style={{
-          transform: isHovered
+          transform: (isHovered && !isTouchDevice)
             ? `perspective(1000px) rotateX(${mousePos.y * -3}deg) rotateY(${mousePos.x * 3}deg) translateY(${cardFloatY}px)`
             : `perspective(1000px) translateY(${cardFloatY}px)`,
           transition: isHovered ? "transform 0.1s ease-out, border-color 0.5s" : "transform 0.4s ease-out, border-color 0.5s",
         }}
       >
         {/* Subtle Ambient Radial Glow on Hover */}
-        <div
-          className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-          style={{
-            background: `radial-gradient(600px circle at ${(mousePos.x + 0.5) * 100}% ${(mousePos.y + 0.5) * 100}%, rgba(255,255,255,0.06), transparent 40%)`,
-          }}
-        />
+        {!isTouchDevice && (
+          <div
+            className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            style={{
+              background: `radial-gradient(600px circle at ${(mousePos.x + 0.5) * 100}% ${(mousePos.y + 0.5) * 100}%, rgba(255,255,255,0.06), transparent 40%)`,
+            }}
+          />
+        )}
 
         {/* Left Column: Content Information */}
-        <div className="w-full lg:col-span-6 flex flex-col gap-6 order-2 lg:order-1 relative z-10">
+        <div className="w-full lg:col-span-6 flex flex-col gap-5 md:gap-6 order-2 lg:order-1 relative z-10">
           {/* Top Meta: Number & Category Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-mono text-lg md:text-xl font-bold text-white/40">
+            <span className="font-mono text-base md:text-xl font-bold text-white/40">
               {project.number}
             </span>
             <span className="font-mono text-[10px] md:text-xs font-semibold tracking-wider uppercase px-2.5 py-1 rounded bg-white/10 text-white/90 border border-white/15 backdrop-blur-sm">
@@ -110,16 +132,16 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
 
           {/* Project Title & Subtitle */}
           <div>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-white transition-colors">
+            <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-white transition-colors">
               {project.title}
             </h3>
-            <p className="text-sm md:text-base text-white/60 font-medium mt-1">
+            <p className="text-xs md:text-base text-white/60 font-medium mt-1">
               {project.subtitle}
             </p>
           </div>
 
           {/* Description */}
-          <div className="text-white/75 text-sm md:text-base leading-relaxed">
+          <div className="text-white/75 text-xs md:text-base leading-relaxed">
             {project.description}
           </div>
 
@@ -128,7 +150,7 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-[10px] md:text-xs text-white/60 border border-white/10 px-2.5 py-1 rounded-md uppercase tracking-wide bg-white/[0.03]"
+                className="font-mono text-[10px] md:text-xs text-white/60 border border-white/10 px-2 py-0.5 md:px-2.5 md:py-1 rounded-md uppercase tracking-wide bg-white/[0.03]"
               >
                 {tag}
               </span>
@@ -136,13 +158,13 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ project, index, total }) =>
           </div>
 
           {/* Direct Launch CTA */}
-          <div className="pt-2">
+          <div className="pt-2 w-full">
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
               style={{ backgroundColor: "#ffffff", color: "#000000" }}
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl !bg-white !text-black font-bold text-sm md:text-base tracking-wide hover:!bg-neutral-200 transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.35)] group/btn cursor-pointer"
+              className="inline-flex w-full sm:w-auto justify-center items-center gap-2.5 px-5 py-3 md:px-6 md:py-3.5 rounded-xl !bg-white !text-black font-bold text-sm md:text-base tracking-wide hover:!bg-neutral-200 transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.35)] group/btn cursor-pointer"
             >
               <span style={{ color: "#000000" }} className="!text-black font-bold">
                 Launch Live Presentation
@@ -196,7 +218,7 @@ export const HobbiesSection: React.FC = () => {
   if (!hobbies.display) return null;
 
   return (
-    <section className="relative w-full bg-[#050505] border-t border-white/10 py-24 md:py-32 px-6 md:px-12 lg:px-24 xl:px-32 overflow-visible flex justify-center z-[2]">
+    <section className="relative w-full bg-[#050505] border-t border-white/10 py-16 md:py-32 px-4 md:px-12 lg:px-24 xl:px-32 overflow-visible flex justify-center z-[2]">
       <div className="relative w-full max-w-[1280px] flex flex-col gap-16 md:gap-24">
         
         {/* Section Header */}

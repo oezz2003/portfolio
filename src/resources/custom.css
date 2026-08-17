@@ -92,8 +92,23 @@
 
 @media (max-width: 768px) {
   .hero-social-sidebar {
-    left: 24px;
-    bottom: 80px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
+    width: max-content !important;
+    max-width: 92vw !important;
+    gap: 14px !important;
+  }
+
+  .hero-social-sidebar .social-link span,
+  .hero-social-sidebar .social-link p,
+  .hero-social-sidebar .social-link div {
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .hero-bounce-container {
+    bottom: calc(130px + env(safe-area-inset-bottom, 0px)) !important;
   }
 }
 

@@ -66,18 +66,18 @@ const careerData: CareerItem[] = [
 
 export const CareerSection: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#000000] border-t border-white/10 py-24 md:py-32 px-6 md:px-12 lg:px-24 xl:px-32 overflow-hidden flex justify-center z-[2]">
-      <div className="relative w-full max-w-[1280px] flex flex-col gap-16 md:gap-24">
+    <section className="relative w-full bg-[#000000] border-t border-white/10 py-16 md:py-32 px-5 md:px-12 lg:px-24 xl:px-32 overflow-hidden flex justify-center z-[2]">
+      <div className="relative w-full max-w-[1280px] flex flex-col gap-10 md:gap-24">
         
         {/* Section Header */}
         <div className="flex flex-col gap-3">
           <span className="font-mono text-xs md:text-sm tracking-widest text-white/50 uppercase">
             // CAREER
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-none">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
             From MVP to Enterprise.
           </h2>
-          <span className="text-2xl md:text-3xl lg:text-4xl text-white/50 font-medium tracking-tight mt-1 block">
+          <span className="text-xl md:text-3xl lg:text-4xl text-white/50 font-medium tracking-tight mt-1 block">
             Engineering Measurable Impact.
           </span>
         </div>
@@ -87,11 +87,11 @@ export const CareerSection: React.FC = () => {
           {careerData.map((item) => (
             <div 
               key={item.number} 
-              className="border-t border-white/10 py-12 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+              className="border-t border-white/10 py-8 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start"
             >
               {/* Number Column */}
               <div className="lg:col-span-1">
-                <span className="font-mono text-lg md:text-xl font-bold text-white/40 block">
+                <span className="font-mono text-base md:text-xl font-bold text-white/40 block">
                   {item.number}
                 </span>
               </div>
