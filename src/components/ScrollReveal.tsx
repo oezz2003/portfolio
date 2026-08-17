@@ -43,7 +43,7 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={classNames("scroll-reveal", isVisible && "scroll-reveal-visible", className)}
+      className={classNames("scroll-reveal gpu-accelerate", isVisible && "scroll-reveal-visible", className)}
       style={{
         transitionDelay: `${delay}ms`,
         transitionDuration: `${duration}ms`,

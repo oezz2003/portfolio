@@ -62,20 +62,20 @@ export default function Home() {
       <ScrollReveal>
         <IntroSection />
       </ScrollReveal>
-      <ScrollReveal>
+      <ScrollReveal className="lazy-render-section">
         <ExpertiseSection />
       </ScrollReveal>
-      <ScrollReveal>
+      <ScrollReveal className="lazy-render-section">
         <AboutMeSection />
       </ScrollReveal>
-      <ScrollReveal>
+      <ScrollReveal className="lazy-render-section">
         <HobbiesSection />
       </ScrollReveal>
-      <ScrollReveal>
+      <ScrollReveal className="lazy-render-section">
         <CareerSection />
       </ScrollReveal>
       <ScrollRevealCTA />
-      <ScrollReveal>
+      <ScrollReveal className="lazy-render-section">
         <LetsTalkSection />
       </ScrollReveal>
     </Column>

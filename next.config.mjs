@@ -19,8 +19,8 @@ const nextConfig = {
     ],
     formats: ['image/webp', 'image/avif'],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
   },
   experimental: {
     optimizeCss: true,

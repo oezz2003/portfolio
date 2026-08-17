@@ -47,5 +47,11 @@
     "eslint-config-next": "^16.2.7",
     "typescript": "^5.8.3",
     "tzdata": "^1.0.44"
-  }
+  },
+  "browserslist": [
+    "chrome >= 90",
+    "safari >= 15",
+    "firefox >= 90",
+    "edge >= 90"
+  ]
 }

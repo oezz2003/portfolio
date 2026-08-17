@@ -43,6 +43,7 @@ export const Hero = () => {
           alt="Ezzaldeen Osama portrait"
           fill
           priority
+          fetchPriority="high"
           sizes="(max-width: 768px) 250vw, (max-width: 1200px) 150vw, 100vw"
           quality={90}
           style={{
