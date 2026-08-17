@@ -3,16 +3,18 @@ import {
   Schema,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL } from "@/resources";
+import dynamic from 'next/dynamic';
 import { Hero } from "@/components/Hero";
 import { IntroSection } from "@/components/IntroSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import { AboutMeSection } from "@/components/AboutMeSection";
-import { HobbiesSection } from "@/components/HobbiesSection";
-import { CareerSection } from "@/components/CareerSection";
-import { ScrollRevealCTA } from "@/components/ScrollRevealCTA";
-import { LetsTalkSection } from "@/components/LetsTalkSection";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import type { Metadata } from 'next';
+
+const ExpertiseSection = dynamic(() => import("@/components/ExpertiseSection"));
+const AboutMeSection = dynamic(() => import("@/components/AboutMeSection").then(mod => mod.AboutMeSection));
+const HobbiesSection = dynamic(() => import("@/components/HobbiesSection").then(mod => mod.HobbiesSection));
+const CareerSection = dynamic(() => import("@/components/CareerSection").then(mod => mod.CareerSection));
+const ScrollRevealCTA = dynamic(() => import("@/components/ScrollRevealCTA").then(mod => mod.ScrollRevealCTA));
+const LetsTalkSection = dynamic(() => import("@/components/LetsTalkSection").then(mod => mod.LetsTalkSection));
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

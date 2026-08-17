@@ -267,7 +267,7 @@ export const ScrollRevealCTA: React.FC = () => {
 
           {/* Footer segment: Scroll Indicator */}
           <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center border-t border-black/10 pt-4 md:pt-8 mt-4 md:mt-0">
-            <span className="font-mono text-[9px] md:text-xs tracking-wider text-black/40 uppercase">
+            <span className="font-mono text-[9px] md:text-xs tracking-wider text-black/70 uppercase">
               SCROLL TO EXPLORE — SELECTED PORTFOLIO ↓
             </span>
             <div className="flex gap-1.5 md:gap-2">

@@ -53,9 +53,9 @@ export const AboutMeSection: React.FC = () => {
 
           {/* Highlight Box at the bottom */}
           <div className="border-l-2 border-black pl-6 py-2 mt-4 bg-black/[0.03] rounded-r-lg pr-4">
-            <h4 className="font-mono text-xs md:text-sm tracking-wider text-black uppercase mb-2">
+            <h3 className="font-mono text-xs md:text-sm tracking-wider text-black uppercase mb-2">
               Product-Minded Engineering — Multidisciplinary Background
-            </h4>
+            </h3>
             <p className="text-black/90 text-sm md:text-base font-medium mb-1">
               Bridging rigorous Engineering fundamentals with Business Administration (BBA).
             </p>

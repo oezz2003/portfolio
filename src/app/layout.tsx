@@ -12,10 +12,15 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers, CustomCursor, TransitionProvider } from "@/components";
+import dynamic from "next/dynamic";
+import { Footer, Header, RouteGuard, Providers, TransitionProvider } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home, person, social } from "@/resources";
 import type { Metadata } from 'next';
 import { Geist } from "next/font/google";
+
+const CustomCursor = dynamic(
+  () => import("@/components/CustomCursor").then((mod) => mod.CustomCursor)
+);
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
